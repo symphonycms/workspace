@@ -7,9 +7,8 @@
 <xsl:import href="../utilities/get-comments.xsl"/>
 
 <xsl:template match="data">
-  <xsl:apply-templates select="homepage-article"/>
-  <hr/>
-  <xsl:apply-templates select="notes"/>
+	<xsl:apply-templates select="homepage-articles/entry"/>
+	<xsl:apply-templates select="notes"/>
 </xsl:template>
 
 </xsl:stylesheet>

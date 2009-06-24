@@ -5,18 +5,19 @@
 <xsl:import href="../utilities/get-drafts.xsl"/>
 
 <xsl:template match="data">
-  <h2>Draft</h2>
-  <xsl:choose>
-    <xsl:when test="$entry = ''">
-      <h3>Area 51, where the nasties happen</h3>
-      <xsl:apply-templates select="drafts/entry" mode="list"/>
-    </xsl:when>
-    <xsl:otherwise>
-      <div id="article">
-        <xsl:apply-templates select="drafts/entry"/>
-      </div>
-    </xsl:otherwise>
-  </xsl:choose>
+	<xsl:choose>
+		<xsl:when test="$entry = ''">
+			<h3>Draft</h3>
+			<h2>Secret lair</h2>
+			<xsl:apply-templates select="drafts/entry" mode="list"/>
+			<xsl:apply-templates select="drafts/error"/>
+		</xsl:when>
+		<xsl:otherwise>
+			<div id="article">
+				<xsl:apply-templates select="drafts/entry"/>
+			</div>
+		</xsl:otherwise>
+	</xsl:choose>
 </xsl:template>
 
 </xsl:stylesheet>

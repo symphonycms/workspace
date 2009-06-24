@@ -6,34 +6,35 @@
 		
 		public $dsParamROOTELEMENT = 'article-images';
 		public $dsParamORDER = 'asc';
-		public $dsParamLIMIT = '20';
+		public $dsParamLIMIT = '30';
 		public $dsParamREDIRECTONEMPTY = 'no';
 		public $dsParamSORT = 'system:id';
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
-				'45' => '{$ds-homepage-article:$ds-articles:$ds-drafts}',
+				'45' => '{$ds-homepage-articles:$ds-article:$ds-drafts}',
 		);
 		
 		public $dsParamINCLUDEDELEMENTS = array(
 				'image',
+				'article',
 				'description'
 		);
 
 		public function __construct(&$parent, $env=NULL, $process_params=true){
 			parent::__construct($parent, $env, $process_params);
-			$this->_dependencies = array('$ds-homepage-article', '$ds-articles', '$ds-drafts');
+			$this->_dependencies = array('$ds-homepage-articles', '$ds-article', '$ds-drafts');
 		}
 		
 		public function about(){
 			return array(
 					 'name' => 'Article Images',
 					 'author' => array(
-							'name' => 'Alistair Kearney',
-							'website' => 'http://symphony.local:8888/2',
-							'email' => 'alistair@symphony21.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-203.local:8888',
+							'email' => 'allen@chaoticpattern.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-12T04:29:03+00:00');	
+					 'release-date' => '2009-06-24T01:23:19+00:00');	
 		}
 		
 		public function getSource(){

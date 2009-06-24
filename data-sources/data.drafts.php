@@ -7,7 +7,7 @@
 		public $dsParamROOTELEMENT = 'drafts';
 		public $dsParamORDER = 'desc';
 		public $dsParamLIMIT = '999';
-		public $dsParamREDIRECTONEMPTY = 'no';
+		public $dsParamREDIRECTONEMPTY = 'yes';
 		public $dsParamPARAMOUTPUT = 'system:id';
 		public $dsParamSORT = 'date';
 		public $dsParamSTARTPAGE = '1';
@@ -33,11 +33,11 @@
 			return array(
 					 'name' => 'Drafts',
 					 'author' => array(
-							'name' => 'Alistair Kearney',
-							'website' => 'http://symphony.local:8888/2',
-							'email' => 'alistair@symphony21.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-203.local:8888',
+							'email' => 'allen@chaoticpattern.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-12T04:29:12+00:00');	
+					 'release-date' => '2009-06-24T01:18:45+00:00');	
 		}
 		
 		public function getSource(){

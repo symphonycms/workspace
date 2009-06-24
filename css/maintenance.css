@@ -1,12 +1,10 @@
-/******* Structure *******/
-
 * {
 	padding: 0;
 	margin: 0;
 }
 
 body {
-	background: #424242 url("../images/background.gif") 0 0 repeat;
+	background: #333;
 	font: 0.8em/1.8em Helvetica, Verdana, sans-serif;
 	margin: 4em 0;
 }
@@ -21,13 +19,13 @@ h1 {
 	font:  normal 1.1em Helvetica;
 	letter-spacing: 1px;
 	text-transform: uppercase;
-	text-shadow: #222 3px 3px 2px;
+	text-shadow: #222 2px 2px 2px;
 }
 
 p {
-	color: #baeec8;
+	color: #fff;
 	line-height: 1em;
-	text-shadow: #000 0 0 0;
+	text-shadow: #333 2px 1px 1px;
 	margin-top: 0.5em;
 }
 

@@ -33,12 +33,24 @@
 			<xsl:apply-templates select="data/navigation"/>
 		</div>
 		<div id="package">
+			<p class="date">
+				<xsl:call-template name="format-date">
+					<xsl:with-param name="date" select="$today"/>
+					<xsl:with-param name="format" select="'d'"/>
+				</xsl:call-template>
+				<span>
+					<xsl:call-template name="format-date">
+						<xsl:with-param name="date" select="$today"/>
+						<xsl:with-param name="format" select="'m'"/>
+					</xsl:call-template>
+				</span>
+			</p>
 			<div id="content">
 				<xsl:apply-templates/>
 			</div>
 		</div>
 		<ul id="footer">
-			<li>Orchestrated by <a class="symphony" href="http://symphony21.com/">Symphony</a></li>
+			<li>Orchestrated by <a class="symphony" href="http://symphony-cms.com/">Symphony</a></li>
 			<li>Broadcasted via <a class="rss" href="{$root}/rss/">XML Feed</a></li>
 		</ul>
 	</body>

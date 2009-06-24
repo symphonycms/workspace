@@ -8,12 +8,12 @@
 		public $dsParamORDER = 'asc';
 		public $dsParamLIMIT = '999';
 		public $dsParamREDIRECTONEMPTY = 'no';
-		public $dsParamREQUIREDPARAM = '$ds-articles';
+		public $dsParamREQUIREDPARAM = '$ds-article';
 		public $dsParamSORT = 'date';
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
-				'39' => '{$ds-articles}',
+				'39' => '{$ds-article}',
 		);
 		
 		public $dsParamINCLUDEDELEMENTS = array(
@@ -27,18 +27,18 @@
 
 		public function __construct(&$parent, $env=NULL, $process_params=true){
 			parent::__construct($parent, $env, $process_params);
-			$this->_dependencies = array('$ds-articles');
+			$this->_dependencies = array('$ds-article');
 		}
 		
 		public function about(){
 			return array(
 					 'name' => 'Comments',
 					 'author' => array(
-							'name' => 'Alistair Kearney',
-							'website' => 'http://symphony.local:8888/2',
-							'email' => 'alistair@symphony21.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-203.local:8888',
+							'email' => 'allen@chaoticpattern.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-12T04:29:10+00:00');	
+					 'release-date' => '2009-06-24T01:23:05+00:00');	
 		}
 		
 		public function getSource(){

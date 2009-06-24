@@ -6,9 +6,9 @@
 <xsl:import href="../utilities/get-comments.xsl"/>
 
 <xsl:template match="data">
-  <h2>Archive</h2>
-  <h3>History in the making</h3>
-  <xsl:apply-templates select="archive"/>
+	<h3>Archive</h3>
+	<h2>History in the making</h2>
+	<xsl:apply-templates select="archive"/>
 </xsl:template>
 
 </xsl:stylesheet>

@@ -2,17 +2,19 @@
 
 	require_once(TOOLKIT . '/class.datasource.php');
 	
-	Class datasourcehomepage_article extends Datasource{
+	Class datasourcearticle extends Datasource{
 		
-		public $dsParamROOTELEMENT = 'homepage-article';
+		public $dsParamROOTELEMENT = 'article';
 		public $dsParamORDER = 'desc';
 		public $dsParamLIMIT = '1';
-		public $dsParamREDIRECTONEMPTY = 'no';
+		public $dsParamREDIRECTONEMPTY = 'yes';
+		public $dsParamREQUIREDPARAM = '$entry';
 		public $dsParamPARAMOUTPUT = 'system:id';
 		public $dsParamSORT = 'date';
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
+				'26' => '{$entry}',
 				'30' => 'yes',
 		);
 		
@@ -30,13 +32,13 @@
 		
 		public function about(){
 			return array(
-					 'name' => 'Homepage Article',
+					 'name' => 'Article',
 					 'author' => array(
-							'name' => 'Alistair Kearney',
-							'website' => 'http://symphony.local:8888/2',
-							'email' => 'alistair@symphony21.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-203.local:8888',
+							'email' => 'allen@chaoticpattern.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-12T04:29:15+00:00');	
+					 'release-date' => '2009-06-24T00:58:54+00:00');	
 		}
 		
 		public function getSource(){
