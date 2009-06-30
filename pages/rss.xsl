@@ -17,7 +17,7 @@
 			<xsl:for-each select="rss-articles/entry">
 				<item>
 					<title><xsl:value-of select="title"/></title>
-					<link><xsl:value-of select="$root"/>/entries/<xsl:value-of select="title/@handle"/>/</link>
+					<link><xsl:value-of select="$root"/>/articles/<xsl:value-of select="title/@handle"/>/</link>
 					<pubDate>
 						<xsl:call-template name="format-date">
 							<xsl:with-param name="date" select="date"/>
