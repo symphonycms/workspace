@@ -17,11 +17,6 @@
 
 <xsl:template match="comments/entry">
 	<dl class="comment">
-		<xsl:if test="authorised = 'Yes'">
-			<xsl:attribute name="class">
-				<xsl:text>comment authorised</xsl:text>
-			</xsl:attribute>
-		</xsl:if>
 		<dt>
 			<xsl:choose>
 				<xsl:when test="website">

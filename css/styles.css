@@ -264,10 +264,6 @@ li {
 	padding-right: 10px;
 }
 
-#comments dl.comment.authorised {
-	background: url("../images/comment-authorised.png") 0 0 repeat;
-}
-
 #comments dl.comment dt em {
 	display: block;
 	color: #888;
