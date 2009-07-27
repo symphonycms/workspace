@@ -29,11 +29,11 @@
 			return array(
 					 'name' => 'Website Owner',
 					 'author' => array(
-							'name' => 'Alistair Kearney',
-							'website' => 'http://symphony.local:8888/2',
-							'email' => 'alistair@symphony21.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-cms.com',
+							'email' => 'allen@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-12T04:29:26+00:00');	
+					 'release-date' => '2009-07-27T05:18:09+00:00');	
 		}
 		
 		public function getSource(){

@@ -14,16 +14,16 @@
 			return array(
 					 'name' => 'Publish Article',
 					 'author' => array(
-							'name' => 'Admin Admin',
-							'website' => 'http://localhost:8888/projects/legacy/symphony-2-beta',
-							'email' => 'admin@admin.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-cms.com',
+							'email' => 'allen@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-03T04:59:38+00:00',
+					 'release-date' => '2009-07-27T05:18:39+00:00',
 					 'trigger-condition' => 'action[publish-article]');	
 		}
 
 		public static function getSource(){
-			return '6';
+			return '1';
 		}
 
 		public static function allowEditorToParse(){
@@ -46,8 +46,8 @@
         <p>The following is an example of what is returned if any filters fail:</p>
         <pre class="XML"><code>&lt;publish-article result="error">
   &lt;message>Entry encountered errors when saving.&lt;/message>
-  &lt;filter type="admin-only" status="failed" />
-  &lt;filter type="send-email" status="failed">Recipient username was invalid&lt;/filter>
+  &lt;filter name="admin-only" status="failed" />
+  &lt;filter name="send-email" status="failed">Recipient username was invalid&lt;/filter>
   ...
 &lt;/publish-article></code></pre>
         <h3>Example Front-end Form Markup</h3>
@@ -63,15 +63,7 @@
   &lt;label>Date
     &lt;input name="fields[date]" type="text" />
   &lt;/label>
-  &lt;label>Categories
-    &lt;select name="fields[categories]">
-      &lt;option value="Symphony">Symphony&lt;/option>
-      &lt;option value="Health">Health&lt;/option>
-      &lt;option value="Fish &amp;amp; Chips">Fish &amp;amp; Chips&lt;/option>
-      &lt;option value="Firefly">Firefly&lt;/option>
-      &lt;option value="Entertainment">Entertainment&lt;/option>
-    &lt;/select>
-  &lt;/label>
+  &lt;input name="fields[categories]" type="hidden" value="..." />
   &lt;label>Publish
     &lt;input name="fields[publish]" type="checkbox" />
   &lt;/label>
@@ -80,7 +72,7 @@
         <p>To edit an existing entry, include the entry ID value of the entry in the form. This is best as a hidden field like so:</p>
         <pre class="XML"><code>&lt;input name="id" type="hidden" value="23" /></code></pre>
         <p>To redirect to a different location upon a successful save, include the redirect location in the form. This is best as a hidden field like so, where the value is the URL to redirect to:</p>
-        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://localhost:8888/projects/legacy/symphony-2-beta/success/" /></code></pre>';
+        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://symphony.local/success/" /></code></pre>';
 		}
 		
 		public function load(){			

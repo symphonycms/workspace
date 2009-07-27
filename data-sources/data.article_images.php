@@ -12,13 +12,13 @@
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
-				'45' => '{$ds-homepage-articles:$ds-article:$ds-drafts}',
+				'17' => '{$ds-homepage-articles:$ds-article:$ds-drafts}',
 		);
 		
 		public $dsParamINCLUDEDELEMENTS = array(
 				'image',
 				'article',
-				'description'
+				'description: formatted'
 		);
 
 		public function __construct(&$parent, $env=NULL, $process_params=true){
@@ -31,14 +31,14 @@
 					 'name' => 'Article Images',
 					 'author' => array(
 							'name' => 'Allen Chang',
-							'website' => 'http://symphony-203.local:8888',
-							'email' => 'allen@chaoticpattern.com'),
+							'website' => 'http://symphony-cms.com',
+							'email' => 'allen@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2009-06-24T01:23:19+00:00');	
+					 'release-date' => '2009-07-27T05:13:31+00:00');	
 		}
 		
 		public function getSource(){
-			return '10';
+			return '5';
 		}
 		
 		public function allowEditorToParse(){

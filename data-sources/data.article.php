@@ -14,13 +14,13 @@
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
-				'26' => '{$entry}',
-				'30' => 'yes',
+				'1' => '{$entry}',
+				'5' => 'yes',
 		);
 		
 		public $dsParamINCLUDEDELEMENTS = array(
 				'title',
-				'body',
+				'body: formatted',
 				'date',
 				'categories'
 		);
@@ -35,14 +35,14 @@
 					 'name' => 'Article',
 					 'author' => array(
 							'name' => 'Allen Chang',
-							'website' => 'http://symphony-203.local:8888',
-							'email' => 'allen@chaoticpattern.com'),
+							'website' => 'http://symphony-cms.com',
+							'email' => 'allen@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2009-06-24T00:58:54+00:00');	
+					 'release-date' => '2009-07-27T05:09:48+00:00');	
 		}
 		
 		public function getSource(){
-			return '6';
+			return '1';
 		}
 		
 		public function allowEditorToParse(){

@@ -6,15 +6,15 @@
 		
 		public $dsParamROOTELEMENT = 'archive';
 		public $dsParamORDER = 'desc';
-		public $dsParamGROUP = '29';
+		public $dsParamGROUP = '3';
 		public $dsParamLIMIT = '100';
 		public $dsParamREDIRECTONEMPTY = 'no';
-		public $dsParamSORT = 'date';
+		public $dsParamSORT = 'system:id';
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
-				'29' => '{$year:$this-year}',
-				'30' => 'yes',
+				'3' => '{$year:$this-year}',
+				'5' => 'yes',
 		);
 		
 		public $dsParamINCLUDEDELEMENTS = array(
@@ -31,15 +31,15 @@
 			return array(
 					 'name' => 'Archive',
 					 'author' => array(
-							'name' => 'Alistair Kearney',
-							'website' => 'http://symphony.local:8888/2',
-							'email' => 'alistair@symphony21.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-cms.com',
+							'email' => 'allen@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-12T04:28:27+00:00');	
+					 'release-date' => '2009-07-27T05:12:12+00:00');	
 		}
 		
 		public function getSource(){
-			return '6';
+			return '1';
 		}
 		
 		public function allowEditorToParse(){

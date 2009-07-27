@@ -14,16 +14,16 @@
 			return array(
 					 'name' => 'Save Message',
 					 'author' => array(
-							'name' => 'Admin Admin',
-							'website' => 'http://localhost:8888/projects/legacy/symphony-2-beta',
-							'email' => 'admin@admin.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-cms.com',
+							'email' => 'allen@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-03T04:59:43+00:00',
+					 'release-date' => '2009-07-27T05:19:31+00:00',
 					 'trigger-condition' => 'action[save-message]');	
 		}
 
 		public static function getSource(){
-			return '11';
+			return '6';
 		}
 
 		public static function allowEditorToParse(){
@@ -46,8 +46,8 @@
         <p>The following is an example of what is returned if any filters fail:</p>
         <pre class="XML"><code>&lt;save-message result="error">
   &lt;message>Entry encountered errors when saving.&lt;/message>
-  &lt;filter type="admin-only" status="failed" />
-  &lt;filter type="send-email" status="failed">Recipient username was invalid&lt;/filter>
+  &lt;filter name="admin-only" status="failed" />
+  &lt;filter name="send-email" status="failed">Recipient username was invalid&lt;/filter>
   ...
 &lt;/save-message></code></pre>
         <h3>Example Front-end Form Markup</h3>
@@ -71,7 +71,7 @@
         <p>To edit an existing entry, include the entry ID value of the entry in the form. This is best as a hidden field like so:</p>
         <pre class="XML"><code>&lt;input name="id" type="hidden" value="23" /></code></pre>
         <p>To redirect to a different location upon a successful save, include the redirect location in the form. This is best as a hidden field like so, where the value is the URL to redirect to:</p>
-        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://localhost:8888/projects/legacy/symphony-2-beta/success/" /></code></pre>
+        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://symphony.local/success/" /></code></pre>
         <h3>Send Email Filter</h3>
         <p>The send email filter, upon the event successfully saving the entry, takes input from the form and send an email to the desired recipient. <b>This filter currently does not work with the "Allow Multiple" option.</b> The following are the recognised fields:</p>
         <pre class="XML"><code>send-email[from]

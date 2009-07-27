@@ -8,18 +8,17 @@
 		public $dsParamORDER = 'desc';
 		public $dsParamLIMIT = '999';
 		public $dsParamREDIRECTONEMPTY = 'yes';
-		public $dsParamPARAMOUTPUT = 'system:id';
-		public $dsParamSORT = 'date';
+		public $dsParamSORT = 'system:id';
 		public $dsParamSTARTPAGE = '1';
 		
 		public $dsParamFILTERS = array(
-				'26' => '{$entry}',
-				'30' => 'no',
+				'1' => '{$entry}',
+				'5' => 'no',
 		);
 		
 		public $dsParamINCLUDEDELEMENTS = array(
 				'title',
-				'body',
+				'body: formatted',
 				'date',
 				'categories'
 		);
@@ -34,14 +33,14 @@
 					 'name' => 'Drafts',
 					 'author' => array(
 							'name' => 'Allen Chang',
-							'website' => 'http://symphony-203.local:8888',
-							'email' => 'allen@chaoticpattern.com'),
+							'website' => 'http://symphony-cms.com',
+							'email' => 'allen@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2009-06-24T01:18:45+00:00');	
+					 'release-date' => '2009-07-27T05:15:19+00:00');	
 		}
 		
 		public function getSource(){
-			return '6';
+			return '1';
 		}
 		
 		public function allowEditorToParse(){

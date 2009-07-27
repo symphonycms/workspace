@@ -8,11 +8,11 @@
 		public $dsParamORDER = 'desc';
 		public $dsParamLIMIT = '5';
 		public $dsParamREDIRECTONEMPTY = 'no';
-		public $dsParamSORT = 'date';
+		public $dsParamSORT = 'system:id';
 		public $dsParamSTARTPAGE = '1';
 		public $dsParamINCLUDEDELEMENTS = array(
 				'date',
-				'note'
+				'note: formatted'
 		);
 
 		public function __construct(&$parent, $env=NULL, $process_params=true){
@@ -24,15 +24,15 @@
 			return array(
 					 'name' => 'Notes',
 					 'author' => array(
-							'name' => 'Alistair Kearney',
-							'website' => 'http://symphony.local:8888/2',
-							'email' => 'alistair@symphony21.com'),
+							'name' => 'Allen Chang',
+							'website' => 'http://symphony-cms.com',
+							'email' => 'allen@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2008-12-12T04:29:21+00:00');	
+					 'release-date' => '2009-07-27T05:17:10+00:00');	
 		}
 		
 		public function getSource(){
-			return '8';
+			return '3';
 		}
 		
 		public function allowEditorToParse(){
