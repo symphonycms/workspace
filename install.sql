@@ -6,6 +6,7 @@ CREATE TABLE `tbl_fields_author` (
   `field_id` int(11) unsigned NOT NULL,
   `allow_author_change` enum('yes','no') collate utf8_unicode_ci NOT NULL,
   `allow_multiple_selection` enum('yes','no') collate utf8_unicode_ci NOT NULL default 'no',
+  `default_to_current_user` enum('yes','no') collate utf8_unicode_ci NOT NULL,
   PRIMARY KEY  (`id`),
   UNIQUE KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
