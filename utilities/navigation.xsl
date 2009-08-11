@@ -15,7 +15,7 @@
 <xsl:template match="page">
 	<li>
 		<a href="{$root}/{@handle}/">
-			<xsl:if test="@handle = $current-page">
+			<xsl:if test="@handle = $root-page">
 				<xsl:attribute name="class">active</xsl:attribute>
 			</xsl:if>
 			<xsl:value-of select="name"/>
