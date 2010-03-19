@@ -12,7 +12,7 @@
 			<link><xsl:value-of select="$root"/></link>
 			<description><xsl:value-of select="$website-name"/> Feed</description>
 			<language>en-us</language>
-			<generator>Symphony (build <xsl:value-of select="$symphony-build"/>)</generator>
+			<generator>Symphony (build <xsl:value-of select="$symphony-version"/>)</generator>
 			<atom:link href="{$root}/rss/" rel="self" type="application/rss+xml" />
 			<xsl:for-each select="rss-articles/entry">
 				<item>

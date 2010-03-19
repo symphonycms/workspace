@@ -23,7 +23,7 @@
 		</title>
 		<link rel="icon" type="images/png" href="{$workspace}/images/icons/bookmark.png" />
 		<link rel="stylesheet" type="text/css" media="screen" href="{$workspace}/css/styles.css" />
-		<link rel="alternate" type="application/rss+xml" href="/rss/" />
+		<link rel="alternate" type="application/rss+xml" href="{$root}/rss/" />
 	</head>
 	<body>
 		<div id="masthead">
