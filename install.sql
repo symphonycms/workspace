@@ -1,11 +1,10 @@
-
 -- *** DATA: `tbl_fields_checkbox` ***
 INSERT INTO `tbl_fields_checkbox` (`id`, `field_id`, `default_state`, `description`) VALUES (4, 5, 'off', 'Publish this article');
 
 -- *** DATA: `tbl_fields_date` ***
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VALUES (6, 3, 'yes', 'no');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VALUES (2, 8, 'yes', 'no');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VALUES (3, 13, 'yes', 'no');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (6, 3, 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (2, 8, 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (3, 13, 'yes');
 
 -- *** DATA: `tbl_fields_input` ***
 INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (11, 1, NULL);
@@ -41,14 +40,6 @@ INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES
 INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (4, 15, 'pb_markdownextrasmartypants', 8);
 INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (5, 18, 'pb_markdownextrasmartypants', 9);
 INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (6, 22, NULL, 9);
-
-INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES
-(1, 2, 'markdown', 20),
-(2, 7, 'markdown', 5),
-(3, 9, 'markdown', 15),
-(4, 15, 'markdown_with_purifier', 8),
-(5, 18, 'markdown', 9),
-(6, 22, NULL, 9);
 
 -- *** DATA: `tbl_fields_upload` ***
 INSERT INTO `tbl_fields_upload` (`id`, `field_id`, `destination`, `validator`) VALUES (1, 16, '/workspace/uploads', '/\\.(?:bmp|gif|jpe?g|png)$/i');
@@ -398,31 +389,28 @@ INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `cr
 INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (6, 3, 1, '2010-02-23 15:06:31', '2010-02-23 05:06:31');
 
 -- *** DATA: `tbl_extensions` ***
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES
-(104, 'export_ensemble', 'enabled', '1.11'),
-(119, 'debugdevkit', 'enabled', '1.0.8'),
-(115, 'selectbox_link_field', 'enabled', '1.18'),
-(106, 'jit_image_manipulation', 'enabled', '1.09'),
-(107, 'maintenance_mode', 'enabled', '1.2'),
-(111, 'markdown', 'enabled', '1.11'),
-(118, 'profiledevkit', 'enabled', '1.0.4');
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (104, 'export_ensemble', 'enabled', 1.11);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (105, 'selectbox_link_field', 'enabled', 1.18);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (106, 'jit_image_manipulation', 'enabled', 1.08);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (107, 'maintenance_mode', 'enabled', 1.2);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (108, 'markdown', 'enabled', 1.8);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (103, 'debugdevkit', 'enabled', '1.0.5');
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (109, 'profiledevkit', 'enabled', '1.0.1');
 
 -- *** DATA: `tbl_extensions_delegates` ***
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES
-(144, 122, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
-(146, 124, '/system/preferences/', 'Save', '__SavePreferences'),
-(142, 121, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
-(143, 121, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation'),
-(152, 125, '/backend/', 'AppendPageAlert', '__appendAlert'),
-(154, 126, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation'),
-(153, 126, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
-(145, 124, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
-(151, 125, '/frontend/', 'FrontendParamsResolve', '__addParam'),
-(150, 125, '/frontend/', 'FrontendPrePageResolve', '__checkForMaintenanceMode'),
-(149, 125, '/system/preferences/', 'CustomActions', '__toggleMaintenanceMode'),
-(148, 125, '/system/preferences/', 'Save', '__SavePreferences'),
-(147, 125, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
-
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (121, 104, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (120, 103, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (119, 103, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (123, 106, '/system/preferences/', 'Save', '__SavePreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (129, 107, '/backend/', 'AppendPageAlert', '__appendAlert');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (131, 109, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (130, 109, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (122, 106, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (128, 107, '/frontend/', 'FrontendParamsResolve', '__addParam');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (127, 107, '/frontend/', 'FrontendPrePageResolve', '__checkForMaintenanceMode');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (126, 107, '/system/preferences/', 'CustomActions', '__toggleMaintenanceMode');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (125, 107, '/system/preferences/', 'Save', '__SavePreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (124, 107, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
 
 -- *** DATA: `tbl_fields` ***
 INSERT INTO `tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (1, 'Title', 'title', 'input', 1, 'yes', 0, 'main', 'yes');
@@ -457,7 +445,6 @@ INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `d
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (70, NULL, 'Drafts', 'drafts', NULL, 'entry', 'article_images,drafts,navigation', 'login,publish_article', 3);
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (75, NULL, 'Maintenance', 'maintenance', NULL, NULL, NULL, NULL, 10);
 INSERT INTO `tbl_pages` (`id`, `parent`, `title`, `handle`, `path`, `params`, `data_sources`, `events`, `sortorder`) VALUES (76, NULL, 'Page Not Found', 'page-not-found', NULL, NULL, NULL, NULL, 11);
-
 
 -- *** DATA: `tbl_pages_types` ***
 INSERT INTO `tbl_pages_types` (`id`, `page_id`, `type`) VALUES (659, 76, 'hidden');
