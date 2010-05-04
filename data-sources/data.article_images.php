@@ -10,6 +10,7 @@
 		public $dsParamREDIRECTONEMPTY = 'no';
 		public $dsParamSORT = 'system:id';
 		public $dsParamSTARTPAGE = '1';
+		public $dsParamASSOCIATEDENTRYCOUNTS = 'yes';
 		
 		public $dsParamFILTERS = array(
 				'17' => '{$ds-homepage-articles:$ds-article:$ds-drafts}',
@@ -30,11 +31,11 @@
 			return array(
 					 'name' => 'Article Images',
 					 'author' => array(
-							'name' => 'Allen Chang',
+							'name' => 'Symphony Team',
 							'website' => 'http://symphony-cms.com',
-							'email' => 'allen@symphony-cms.com'),
+							'email' => 'team@symphony-cms.com'),
 					 'version' => '1.0',
-					 'release-date' => '2009-07-27T05:13:31+00:00');	
+					 'release-date' => '2010-05-04');
 		}
 		
 		public function getSource(){
@@ -45,12 +46,17 @@
 			return true;
 		}
 		
-		public function grab(&$param_pool){
+		public function grab(&$param_pool=NULL){
 			$result = new XMLElement($this->dsParamROOTELEMENT);
 				
 			try{
 				include(TOOLKIT . '/data-sources/datasource.section.php');
 			}
+			catch(FrontendPageNotFoundException $e){
+				// Work around. This ensures the 404 page is displayed and
+				// is not picked up by the default catch() statement below
+				FrontendPageNotFoundExceptionHandler::render($e);
+			}			
 			catch(Exception $e){
 				$result->appendChild(new XMLElement('error', $e->getMessage()));
 				return $result;
