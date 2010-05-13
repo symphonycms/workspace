@@ -389,31 +389,34 @@ INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `cr
 INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (5, 3, 1, '2010-02-23 15:06:19', '2010-02-23 05:06:19');
 INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (6, 3, 1, '2010-02-23 15:06:31', '2010-02-23 05:06:31');
 
+
 -- *** DATA: `tbl_extensions` ***
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES
-(104, 'export_ensemble', 'enabled', '1.11'),
-(119, 'debugdevkit', 'enabled', '1.0.8'),
-(115, 'selectbox_link_field', 'enabled', '1.18'),
-(106, 'jit_image_manipulation', 'enabled', '1.09'),
-(107, 'maintenance_mode', 'enabled', '1.2'),
-(111, 'markdown', 'enabled', '1.11'),
-(118, 'profiledevkit', 'enabled', '1.0.4');
+(129, 'debugdevkit', 'enabled', '1.0.8'),
+(130, 'export_ensemble', 'enabled', '1.11'),
+(131, 'selectbox_link_field', 'enabled', '1.18'),
+(132, 'jit_image_manipulation', 'enabled', '1.09'),
+(133, 'maintenance_mode', 'enabled', '1.2'),
+(134, 'profiledevkit', 'enabled', '1.0.4'),
+(135, 'markdown', 'enabled', '1.11');
+
 
 -- *** DATA: `tbl_extensions_delegates` ***
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES
-(144, 122, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
-(146, 124, '/system/preferences/', 'Save', '__SavePreferences'),
-(142, 121, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
-(143, 121, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation'),
-(152, 125, '/backend/', 'AppendPageAlert', '__appendAlert'),
-(154, 126, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation'),
-(153, 126, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
-(145, 124, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
-(151, 125, '/frontend/', 'FrontendParamsResolve', '__addParam'),
-(150, 125, '/frontend/', 'FrontendPrePageResolve', '__checkForMaintenanceMode'),
-(149, 125, '/system/preferences/', 'CustomActions', '__toggleMaintenanceMode'),
-(148, 125, '/system/preferences/', 'Save', '__SavePreferences'),
-(147, 125, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
+(169, 129, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
+(170, 129, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation'),
+(171, 130, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
+(172, 132, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
+(173, 132, '/system/preferences/', 'Save', '__SavePreferences'),
+(174, 133, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
+(175, 133, '/system/preferences/', 'Save', '__SavePreferences'),
+(176, 133, '/system/preferences/', 'CustomActions', '__toggleMaintenanceMode'),
+(177, 133, '/frontend/', 'FrontendPrePageResolve', '__checkForMaintenanceMode'),
+(178, 133, '/frontend/', 'FrontendParamsResolve', '__addParam'),
+(179, 133, '/backend/', 'AppendPageAlert', '__appendAlert'),
+(180, 134, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
+(181, 134, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
+
 
 -- *** DATA: `tbl_fields` ***
 INSERT INTO `tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (1, 'Title', 'title', 'input', 1, 'yes', 0, 'main', 'yes');
