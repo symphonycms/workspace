@@ -398,7 +398,8 @@ INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES
 (132, 'jit_image_manipulation', 'enabled', '1.09'),
 (133, 'maintenance_mode', 'enabled', '1.2'),
 (134, 'profiledevkit', 'enabled', '1.0.4'),
-(135, 'markdown', 'enabled', '1.11');
+(135, 'markdown', 'enabled', '1.11'),
+(136, 'xssfilter', 'enabled', '1.0');
 
 
 -- *** DATA: `tbl_extensions_delegates` ***
@@ -415,7 +416,10 @@ INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`
 (178, 133, '/frontend/', 'FrontendParamsResolve', '__addParam'),
 (179, 133, '/backend/', 'AppendPageAlert', '__appendAlert'),
 (180, 134, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
-(181, 134, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
+(181, 134, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation'),
+(182, 136, '/blueprints/events/new/', 'AppendEventFilter', 'appendEventFilter'),
+(183, 136, '/blueprints/events/edit/', 'AppendEventFilter', 'appendEventFilter'),
+(184, 136, '/frontend/', 'EventPreSaveFilter', 'eventPreSaveFilter');
 
 
 -- *** DATA: `tbl_fields` ***

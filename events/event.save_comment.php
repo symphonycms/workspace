@@ -7,7 +7,7 @@
 		const ROOTELEMENT = 'save-comment';
 		
 		public $eParamFILTERS = array(
-			
+			'xss-fail'
 		);
 			
 		public static function about(){
@@ -68,7 +68,7 @@
         <p>To edit an existing entry, include the entry ID value of the entry in the form. This is best as a hidden field like so:</p>
         <pre class="XML"><code>&lt;input name="id" type="hidden" value="23" /></code></pre>
         <p>To redirect to a different location upon a successful save, include the redirect location in the form. This is best as a hidden field like so, where the value is the URL to redirect to:</p>
-        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://symphony.local:8888/2.0/success/" /></code></pre>';
+        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://yoursite.com/success/" /></code></pre>';
 		}
 		
 		public function load(){			
@@ -81,4 +81,3 @@
 		}		
 
 	}
-
