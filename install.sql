@@ -398,7 +398,7 @@ INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES
 (132, 'jit_image_manipulation', 'enabled', '1.09'),
 (133, 'maintenance_mode', 'enabled', '1.2'),
 (134, 'profiledevkit', 'enabled', '1.0.4'),
-(135, 'markdown', 'enabled', '1.11'),
+(135, 'markdown', 'enabled', '1.12'),
 (136, 'xssfilter', 'enabled', '1.0');
 
 
