@@ -44,8 +44,8 @@
 			</label>
 			<label>Message <textarea name="fields[message]" rows="5" cols="21"><xsl:value-of select="events/save-message/post-values/message" /></textarea></label>
 			<input name="send-email[recipient]" value="{website-owner/author/username}" type="hidden" />
-			<input name="send-email[sender-email]" value="fields[email]" type="hidden" />
-			<input name="send-email[sender-name]" value="fields[name]" type="hidden" />
+			<input name="send-email[reply-to-email]" value="fields[email]" type="hidden" />
+			<input name="send-email[reply-to-name]" value="fields[name]" type="hidden" />
 			<input name="send-email[subject]" value="fields[subject]" type="hidden" />
 			<input name="send-email[body]" value="fields[message],fields[subject],fields[email],fields[name]" type="hidden" />
 			<input id="submit" type="submit" name="action[save-message]" value="Send" />
