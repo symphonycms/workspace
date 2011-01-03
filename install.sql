@@ -282,8 +282,8 @@ CREATE TABLE `tbl_entries_data_3` (
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_3` ***
-INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (12, 3, '2010-02-22T14:54:00+10:00', 1266814440, 1266814440);
-INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (11, 4, '2010-02-23T14:55:00+10:00', 1266900900, 1266900900);
+INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (12, 3, '2011-01-03T12:34:00+10:00', 1294079640, 1294079640);
+INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (11, 4, '2011-01-03T13:57:00+10:00', 1294084620, 1294084620);
 
 -- *** STRUCTURE: `tbl_entries_data_4` ***
 DROP TABLE IF EXISTS `tbl_entries_data_4`;
