@@ -13,8 +13,8 @@
 						 'author' => array('name' => 'Alistair Kearney',
 										   'website' => 'http://www.pointybeard.com',
 										   'email' => 'alistair@pointybeard.com'),
-						 'version' => '1.4',
-						 'release-date' => '2008-01-17',
+						 'version' => '1.5',
+						 'release-date' => '2010-01-10',
 						 'trigger-condition' => 'action[login] field or an already valid Symphony cookie',
 						 'recognised-fields' => array(
 													array('username', true),
@@ -38,21 +38,22 @@
 			if(isset($_REQUEST['action']['login'])){
 				$username = $_REQUEST['username'];
 				$password = $_REQUEST['password'];
-				$loggedin = $this->_Parent->login($username, $password);
+				$loggedin = Frontend::instance()->login($username, $password);
 			}
 
-			else $loggedin = $this->_Parent->isLoggedIn();
+			else $loggedin = Frontend::instance()->isLoggedIn();
 
 			if($loggedin){
 				$result = new XMLElement('login-info');
 				$result->setAttribute('logged-in', 'true');
 
-				$author = $this->_Parent->Author;
+				$author = Frontend::instance()->Author;
 
-				$result->setAttributeArray(array('id' => $author->get('id'),
-												  'user-type' => $author->get('user_type'),
-												  'primary-account' => $author->get('primary')
-											));
+				$result->setAttributeArray(array(
+					'id' => $author->get('id'),
+					'user-type' => $author->get('user_type'),
+					'primary-account' => $author->get('primary')
+				));
 
 				$fields = array(
 					'name' => new XMLElement('name', $author->getFullName()),
@@ -62,10 +63,17 @@
 
 				if($author->isTokenActive()) $fields['author-token'] = new XMLElement('author-token', $author->createAuthToken());
 
-				if($section = $this->_Parent->Database->fetchRow(0, "SELECT `id`, `handle`, `name` FROM `tbl_sections` WHERE `id` = '".$author->get('default_area')."' LIMIT 1")){
+				// Section
+				if($section = Symphony::Database()->fetchRow(0, "SELECT `id`, `handle`, `name` FROM `tbl_sections` WHERE `id` = '".$author->get('default_area')."' LIMIT 1")){
 					$default_area = new XMLElement('default-area', $section['name']);
-					$default_area->setAttributeArray(array('id' => $section['id'], 'handle' => $section['handle']));
-					$fields['default-area'] = $default_area;
+					$default_area->setAttributeArray(array('id' => $section['id'], 'handle' => $section['handle'], 'type' => 'section'));
+					$xAuthor->appendChild($default_area);
+				}
+				// Pages
+				else {
+					$default_area = new XMLElement('default-area', $author->get('default_area'));
+					$default_area->setAttribute('type', 'page');
+					$xAuthor->appendChild($default_area);
 				}
 
 				foreach($fields as $f) $result->appendChild($f);
@@ -81,5 +89,3 @@
 
 		}
 	}
-
-?>
