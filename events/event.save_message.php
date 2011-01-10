@@ -76,9 +76,11 @@
         <p>The send email filter, upon the event successfully saving the entry, takes input from the form and send an email to the desired recipient. <b>This filter currently does not work with the "Allow Multiple" option.</b> The following are the recognised fields:</p>
         <pre class="XML"><code>send-email[sender-email] // Optional
 send-email[sender-name] // Optional
-send-email[subject] // Optional
+send-email[reply-to-email] // Optional
+send-email[reply-to-name] // Optional
+send-email[subject]
 send-email[body]
-send-email[recipient] // list of comma author usernames.</code></pre>
+send-email[recipient] // list of comma-separated author usernames.</code></pre>
         <p>All of these fields can be set dynamically using the exact field name of another field in the form as shown below in the example form:</p>
         <pre class="XML"><code>&lt;form action="" method="post">
   &lt;fieldset>
@@ -87,6 +89,8 @@ send-email[recipient] // list of comma author usernames.</code></pre>
     &lt;label>Message &lt;textarea name="fields[message]" rows="5" cols="21">&lt;/textarea>&lt;/label>
     &lt;input name="send-email[sender-email]" value="fields[email]" type="hidden" />
     &lt;input name="send-email[sender-name]" value="fields[author]" type="hidden" />    
+    &lt;input name="send-email[reply-to-email]" value="fields[email]" type="hidden" />
+    &lt;input name="send-email[reply-to-name]" value="fields[author]" type="hidden" />
     &lt;input name="send-email[subject]" value="You are being contacted" type="hidden" />
     &lt;input name="send-email[body]" value="fields[message]" type="hidden" />
     &lt;input name="send-email[recipient]" value="fred" type="hidden" />

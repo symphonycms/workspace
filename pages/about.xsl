@@ -24,8 +24,12 @@
 		<xsl:for-each select="events/save-message">
 			<p class="{@result}">
 				<xsl:choose>
-					<xsl:when test="@result = 'success'">Email sent.</xsl:when>
-					<xsl:otherwise>The system encountered errors while sending your email. Please check if all the required fields have been filled.</xsl:otherwise>
+					<xsl:when test="@result = 'error'">The system encountered errors while sending your email. Please check if all the required fields have been filled.</xsl:when>
+					<xsl:when test="filter/@status = 'failed'">
+						<xsl:attribute name="class">error</xsl:attribute>
+						<xsl:text>The system encountered technical problems while sending your email.</xsl:text>
+					</xsl:when>
+					<xsl:otherwise>Email sent.</xsl:otherwise>
 				</xsl:choose>
 			</p>
 		</xsl:for-each>
@@ -44,8 +48,8 @@
 			</label>
 			<label>Message <textarea name="fields[message]" rows="5" cols="21"><xsl:value-of select="events/save-message/post-values/message" /></textarea></label>
 			<input name="send-email[recipient]" value="{website-owner/author/username}" type="hidden" />
-			<input name="send-email[sender-email]" value="fields[email]" type="hidden" />
-			<input name="send-email[sender-name]" value="fields[name]" type="hidden" />
+			<input name="send-email[reply-to-email]" value="fields[email]" type="hidden" />
+			<input name="send-email[reply-to-name]" value="fields[name]" type="hidden" />
 			<input name="send-email[subject]" value="fields[subject]" type="hidden" />
 			<input name="send-email[body]" value="fields[message],fields[subject],fields[email],fields[name]" type="hidden" />
 			<input id="submit" type="submit" name="action[save-message]" value="Send" />
