@@ -26,7 +26,7 @@
 			return $this->__trigger();
 		}
 
-		public function documentation(){
+		public static function documentation(){
 			return new XMLElement('p', 'This is an event that displays basic login details (such as their real name, username and author type) if the person viewing the site have been authenticated by logging in to Symphony. It is useful if you want to do something special with the site if the person viewing it is an authenticated member.');
 		}
 
