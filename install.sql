@@ -363,8 +363,8 @@ CREATE TABLE `tbl_entries_data_8` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_8` ***
-INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (4, 5, '2010-02-23T14:54:00+10:00', 1266900840, 1266900840);
-INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (3, 6, '2010-02-23T14:55:00+10:00', 1266900900, 1266900900);
+INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (4, 5, '2011-02-23T14:54:00+10:00', 1266900840, 1266900840);
+INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (3, 6, '2011-02-23T14:55:00+10:00', 1266900900, 1266900900);
 
 -- *** STRUCTURE: `tbl_entries_data_9` ***
 DROP TABLE IF EXISTS `tbl_entries_data_9`;
@@ -383,12 +383,12 @@ INSERT INTO `tbl_entries_data_9` (`id`, `entry_id`, `value`, `value_formatted`) 
 INSERT INTO `tbl_entries_data_9` (`id`, `entry_id`, `value`, `value_formatted`) VALUES (3, 6, 'Follow the Symphony team ([@symphonycms](http://twitter.com/symphonycms)) and the Symphony community ([#symphonycms](http://twitter.com/search?q=%23symphonycms)) on Twitter.', '<p>Follow the Symphony team (<a href=\"http://twitter.com/symphonycms\">@symphonycms</a>) and the Symphony community (<a href=\"http://twitter.com/search?q=%23symphonycms\">#symphonycms</a>) on Twitter.</p>\n');
 
 -- *** DATA: `tbl_entries` ***
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (1, 2, 1, '2010-02-23 15:03:54', '2010-02-23 05:03:54');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (2, 2, 1, '2010-02-23 15:05:01', '2010-02-23 05:05:01');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (3, 1, 1, '2010-02-23 15:05:45', '2010-02-23 05:05:45');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (4, 1, 1, '2010-02-23 15:06:00', '2010-02-23 05:06:00');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (5, 3, 1, '2010-02-23 15:06:19', '2010-02-23 05:06:19');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (6, 3, 1, '2010-02-23 15:06:31', '2010-02-23 05:06:31');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (1, 2, 1, '2011-02-23 15:03:54', '2011-02-23 05:03:54');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (2, 2, 1, '2011-02-23 15:05:01', '2011-02-23 05:05:01');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (3, 1, 1, '2011-02-23 15:05:45', '2011-02-23 05:05:45');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (4, 1, 1, '2011-02-23 15:06:00', '2011-02-23 05:06:00');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (5, 3, 1, '2011-02-23 15:06:19', '2011-02-23 05:06:19');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (6, 3, 1, '2011-02-23 15:06:31', '2011-02-23 05:06:31');
 
 
 -- *** DATA: `tbl_extensions` ***
