@@ -394,12 +394,12 @@ INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `cr
 -- *** DATA: `tbl_extensions` ***
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES
 (129, 'debugdevkit', 'enabled', '1.1'),
-(130, 'export_ensemble', 'enabled', '1.2'),
+(130, 'export_ensemble', 'enabled', '1.12'),
 (131, 'selectbox_link_field', 'enabled', '1.19'),
 (132, 'jit_image_manipulation', 'enabled', '1.09'),
 (133, 'maintenance_mode', 'enabled', '1.4'),
 (134, 'profiledevkit', 'enabled', '1.0.4'),
-(135, 'markdown', 'enabled', '1.2'),
+(135, 'markdown', 'enabled', '1.13'),
 (136, 'xssfilter', 'enabled', '1.0');
 
 
