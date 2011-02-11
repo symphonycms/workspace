@@ -71,7 +71,7 @@
 		<p>To edit an existing entry, include the entry ID value of the entry in the form. This is best as a hidden field like so:</p>
 		<pre class="XML"><code>&lt;input name="id" type="hidden" value="23" /></code></pre>
 		<p>To redirect to a different location upon a successful save, include the redirect location in the form. This is best as a hidden field like so, where the value is the URL to redirect to:</p>
-		<pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://symphony.local:8888/2.0/success/" /></code></pre>
+		<pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://example.com/success/" /></code></pre>
 		<h3>Send Email Filter</h3>
 		<p>The send email filter, upon the event successfully saving the entry, takes input from the form and send an email to the desired recipient. <b>This filter currently does not work with the "Allow Multiple" option.</b> The following are the recognised fields:</p>
 		<pre class="XML"><code>send-email[sender-email] // Optional
