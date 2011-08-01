@@ -395,8 +395,8 @@ INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `cr
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES
 (129, 'debugdevkit', 'enabled', '1.2'),
 (130, 'export_ensemble', 'enabled', '1.16'),
-(131, 'selectbox_link_field', 'enabled', '1.20pre'),
-(132, 'jit_image_manipulation', 'enabled', '1.10'),
+(131, 'selectbox_link_field', 'enabled', '1.20'),
+(132, 'jit_image_manipulation', 'enabled', '1.11'),
 (133, 'maintenance_mode', 'enabled', '1.4'),
 (134, 'profiledevkit', 'enabled', '1.0.4'),
 (135, 'markdown', 'enabled', '1.13'),
