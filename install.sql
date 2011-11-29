@@ -156,7 +156,7 @@ CREATE TABLE `tbl_entries_data_16` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned NULL,
   `mimetype` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `meta` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
