@@ -63,17 +63,19 @@
 
 				if($author->isTokenActive()) $fields['author-token'] = new XMLElement('author-token', $author->createAuthToken());
 
-				// Section
-				if($section = Symphony::Database()->fetchRow(0, "SELECT `id`, `handle`, `name` FROM `tbl_sections` WHERE `id` = '".$author->get('default_area')."' LIMIT 1")){
-					$default_area = new XMLElement('default-area', $section['name']);
-					$default_area->setAttributeArray(array('id' => $section['id'], 'handle' => $section['handle'], 'type' => 'section'));
-					$fields['default-area'] = $default_area;
-				}
-				// Pages
-				else {
-					$default_area = new XMLElement('default-area', $author->get('default_area'));
-					$default_area->setAttribute('type', 'page');
-					$fields['default-area'] = $default_area;
+				if(!is_null($author->get('default_area'))) {
+					// Section
+					if($section = Symphony::Database()->fetchRow(0, "SELECT `id`, `handle`, `name` FROM `tbl_sections` WHERE `id` = '".$author->get('default_area')."' LIMIT 1")){
+						$default_area = new XMLElement('default-area', $section['name']);
+						$default_area->setAttributeArray(array('id' => $section['id'], 'handle' => $section['handle'], 'type' => 'section'));
+						$fields['default-area'] = $default_area;
+					}
+					// Pages
+					else {
+						$default_area = new XMLElement('default-area', $author->get('default_area'));
+						$default_area->setAttribute('type', 'page');
+						$fields['default-area'] = $default_area;
+					}
 				}
 
 				foreach($fields as $f) $result->appendChild($f);
