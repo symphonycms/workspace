@@ -34,7 +34,7 @@
 
 		public function about(){
 			return array(
-				'name' => 'Homepage Article',
+				'name' => 'Homepage Articles',
 				'author' => array(
 					'name' => 'Symphony Team',
 					'website' => 'http://symphony-cms.com',
