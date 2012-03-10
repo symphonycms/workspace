@@ -114,11 +114,11 @@ CREATE TABLE `tbl_entries_data_13` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `value` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `local` int(11) DEFAULT NULL,
-  `gmt` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
-  KEY `value` (`value`)
+  UNIQUE KEY `entry_id` (`entry_id`),
+  KEY `value` (`value`),
+  KEY `date` (`date`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_13` ***
@@ -269,22 +269,31 @@ CREATE TABLE `tbl_entries_data_22` (
 
 -- *** DATA: `tbl_entries_data_22` ***
 
+
+
+CREATE TABLE `sym_entries_data_24` (
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=3 ;
+
+--
+-- Dumping data for table `sym_entries_data_24`
+--
+
 -- *** STRUCTURE: `tbl_entries_data_3` ***
 DROP TABLE IF EXISTS `tbl_entries_data_3`;
 CREATE TABLE `tbl_entries_data_3` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `value` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `local` int(11) DEFAULT NULL,
-  `gmt` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
-  KEY `value` (`value`)
+  UNIQUE KEY `entry_id` (`entry_id`),
+  KEY `value` (`value`),
+  KEY `date` (`date`)
 ) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_3` ***
-INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (12, 3, '2011-07-20T12:34:00+10:00', 1294079640, 1294079640);
-INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (11, 4, '2011-07-21T13:57:00+10:00', 1294084620, 1294084620);
+INSERT INTO `sym_entries_data_3` VALUES(12, 3, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
+INSERT INTO `sym_entries_data_3` VALUES(11, 4, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
 
 -- *** STRUCTURE: `tbl_entries_data_4` ***
 DROP TABLE IF EXISTS `tbl_entries_data_4`;
@@ -355,16 +364,16 @@ CREATE TABLE `tbl_entries_data_8` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `value` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `local` int(11) DEFAULT NULL,
-  `gmt` int(11) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
-  KEY `value` (`value`)
+  UNIQUE KEY `entry_id` (`entry_id`),
+  KEY `value` (`value`),
+  KEY `date` (`date`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_8` ***
-INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (4, 5, '2011-07-20T14:54:00+10:00', 1266900840, 1266900840);
-INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `local`, `gmt`) VALUES (3, 6, '2011-07-21T14:55:00+10:00', 1266900900, 1266900900);
+INSERT INTO `sym_entries_data_8` VALUES(4, 5, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
+INSERT INTO `sym_entries_data_8` VALUES(3, 6, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
 
 -- *** STRUCTURE: `tbl_entries_data_9` ***
 DROP TABLE IF EXISTS `tbl_entries_data_9`;
