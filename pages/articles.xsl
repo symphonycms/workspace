@@ -22,10 +22,12 @@
 			<xsl:choose>
 				<xsl:when test="@result = 'success'"><p class="{@result}">Your comment has been saved successfully.</p></xsl:when>
 				<xsl:otherwise>
-					<p class="{@result}">The system encountered errors when saving your comment.</p>
-					<ul>
-						<xsl:apply-templates select="//@message"/>
-					</ul>
+					<div class="{@result}">
+					<p>The system encountered errors when saving your comment.</p>
+						<ul>
+							<xsl:apply-templates select="//@message"/>
+						</ul>
+					</div>
 				</xsl:otherwise>
 			</xsl:choose>
 		</xsl:for-each>

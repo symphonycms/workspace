@@ -430,7 +430,7 @@ form p.success {
 	margin: 1px !important;
 }
 
-form p.error {
+form .error {
 	color: #5f311b;
 	background-color: #fb834b;
 	border-top: 1px solid #fcc8a4;
