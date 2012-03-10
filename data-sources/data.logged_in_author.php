@@ -2,28 +2,21 @@
 
 	require_once(TOOLKIT . '/class.datasource.php');
 
-	Class datasourcearchive extends Datasource{
+	Class datasourcelogged_in_author extends Datasource{
 
-		public $dsParamROOTELEMENT = 'archive';
+		public $dsParamROOTELEMENT = 'logged-in-author';
 		public $dsParamORDER = 'desc';
-		public $dsParamGROUP = '3';
-		public $dsParamPAGINATERESULTS = 'yes';
-		public $dsParamLIMIT = '100';
-		public $dsParamSTARTPAGE = '1';
 		public $dsParamREDIRECTONEMPTY = 'no';
-		public $dsParamSORT = 'system:id';
-		public $dsParamASSOCIATEDENTRYCOUNTS = 'yes';
+		public $dsParamSORT = 'id';
 		
 
 		public $dsParamFILTERS = array(
-				'3' => '{$year}',
-				'5' => 'yes',
+				'username' => '{$cookie-username:0}',
 		);
 		
 
 		public $dsParamINCLUDEDELEMENTS = array(
-				'title',
-				'date'
+				'username'
 		);
 		
 
@@ -34,18 +27,18 @@
 
 		public function about(){
 			return array(
-				'name' => 'Archive',
+				'name' => 'Logged in Author',
 				'author' => array(
-					'name' => 'Symphony Team',
-					'website' => 'http://symphony-cms.com',
-					'email' => 'team@symphony-cms.com'),
-				'version' => 'Symphony 2.3',
-				'release-date' => '2012-03-10T12:58:57+00:00'
+							'name' => 'Symphony Team',
+							'website' => 'http://symphony-cms.com',
+							'email' => 'team@symphony-cms.com'),
+				'version' => '1.0',
+				'release-date' => '2012-03-10'
 			);
 		}
 
 		public function getSource(){
-			return '1';
+			return 'authors';
 		}
 
 		public function allowEditorToParse(){
@@ -57,7 +50,7 @@
 
 			try{
 				
-				include(TOOLKIT . '/data-sources/datasource.section.php');
+				include(TOOLKIT . '/data-sources/datasource.author.php');
 			}
 			catch(FrontendPageNotFoundException $e){
 				// Work around. This ensures the 404 page is displayed and
