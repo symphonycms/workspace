@@ -12,7 +12,7 @@
 
 		public static function about(){
 			return array(
-				'name' => 'Publish Article',
+				'name' => 'Save Message',
 				'author' => array(
 					'name' => 'Symphony Team',
 					'website' => 'http://symphony-cms.com',
