@@ -7,25 +7,22 @@
 		public $dsParamROOTELEMENT = 'archive';
 		public $dsParamORDER = 'desc';
 		public $dsParamGROUP = '3';
-		public $dsParamPAGINATERESULTS = 'yes';
+		public $dsParamPAGINATERESULTS = 'no';
 		public $dsParamLIMIT = '100';
 		public $dsParamSTARTPAGE = '1';
 		public $dsParamREDIRECTONEMPTY = 'no';
 		public $dsParamSORT = 'system:id';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'yes';
-		
 
 		public $dsParamFILTERS = array(
 				'3' => '{$year}',
 				'5' => 'yes',
 		);
-		
 
 		public $dsParamINCLUDEDELEMENTS = array(
 				'title',
 				'date'
 		);
-		
 
 		public function __construct(&$parent, $env=NULL, $process_params=true){
 			parent::__construct($parent, $env, $process_params);
@@ -40,7 +37,7 @@
 					'website' => 'http://symphony-cms.com',
 					'email' => 'team@symphony-cms.com'),
 				'version' => 'Symphony 2.3',
-				'release-date' => '2012-03-10T12:58:57+00:00'
+				'release-date' => '2012-03-10T13:21:00+00:00'
 			);
 		}
 
@@ -71,9 +68,6 @@
 
 			if($this->_force_empty_result) $result = $this->emptyXMLSet();
 
-			
-
 			return $result;
 		}
-
 	}
