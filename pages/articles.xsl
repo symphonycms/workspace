@@ -19,12 +19,15 @@
 	</div>
 	<form action="" method="post">
 		<xsl:for-each select="events/save-comment">
-			<p class="{@result}">
-				<xsl:choose>
-					<xsl:when test="@result = 'success'">Your comment has been saved successfully.</xsl:when>
-					<xsl:otherwise>The system encountered errors when saving your comment. Please check if all the required fields have been filled.</xsl:otherwise>
-				</xsl:choose>
-			</p>
+			<xsl:choose>
+				<xsl:when test="@result = 'success'"><p class="{@result}">Your comment has been saved successfully.</p></xsl:when>
+				<xsl:otherwise>
+					<p class="{@result}">The system encountered errors when saving your comment.</p>
+					<ul>
+						<xsl:apply-templates select="//@message"/>
+					</ul>
+				</xsl:otherwise>
+			</xsl:choose>
 		</xsl:for-each>
 		<fieldset>
 			<label>Name <input type="text" name="fields[author]" value="{events/save-comment/post-values/author}" /></label>
@@ -35,6 +38,10 @@
 			<input id="submit" type="submit" name="action[save-comment]" value="Post Comment" />
 		</fieldset>
 	</form>
+</xsl:template>
+
+<xsl:template match="//@message">
+	<li><xsl:value-of select="."/></li>
 </xsl:template>
 
 </xsl:stylesheet>
