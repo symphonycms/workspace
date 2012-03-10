@@ -12,7 +12,7 @@
 	encoding="UTF-8"
 	indent="yes" />
 
-<xsl:variable name="is-logged-in" select="/data/events/login-info/@logged-in"/>
+<xsl:variable name="is-logged-in" select="/data/logged-in-author/author"/>
 
 <xsl:template match="/">
 

@@ -4,10 +4,13 @@
 <xsl:template match="navigation">
 	<ul id="menu">
 		<xsl:apply-templates select="page[not(types/type = 'hidden') and not(types/type = 'admin')]"/>
-		<xsl:if test="/data/events/login-info/@logged-in = 'true'">
+		<xsl:if test="$is-logged-in">
 			<li><a href="{$root}/drafts/">Drafts</a></li>
 			<li><a href="{$root}/symphony/">Admin</a></li>
-			<li><a href="?debug">Debug</a></li>
+
+			<xsl:if test="/data/logged-in-author/author[@user-type = 'developer']">
+				<li><a href="?debug">Debug</a></li>
+			</xsl:if>
 		</xsl:if>
 	</ul>
 </xsl:template>
