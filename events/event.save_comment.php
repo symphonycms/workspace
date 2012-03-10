@@ -12,14 +12,15 @@
 
 		public static function about(){
 			return array(
-					 'name' => 'Save Comment',
-					 'author' => array(
-							'name' => 'Symphony Team',
-							'website' => 'http://symphony-cms.com',
-							'email' => 'team@symphony-cms.com'),
-					 'version' => '1.0',
-					 'release-date' => '2010-01-19T23:37:24+00:00',
-					 'trigger-condition' => 'action[save-comment]');
+				'name' => 'Publish Article',
+				'author' => array(
+					'name' => 'Symphony Team',
+					'website' => 'http://symphony-cms.com',
+					'email' => 'team@symphony-cms.com'),
+				'version' => 'Symphony 2.3',
+				'release-date' => '2012-03-10T13:21:00+00:00',
+				'trigger-condition' => 'action[save-comment]'
+			);
 		}
 
 		public static function getSource(){
@@ -41,6 +42,13 @@
         <pre class="XML"><code>&lt;save-comment result="error">
   &lt;message>Entry encountered errors when saving.&lt;/message>
   &lt;field-name type="invalid | missing" />
+  ...
+&lt;/save-comment></code></pre>
+        <p>The following is an example of what is returned if any options return an error:</p>
+        <pre class="XML"><code>&lt;save-comment result="error">
+  &lt;message>Entry encountered errors when saving.&lt;/message>
+  &lt;filter name="admin-only" status="failed" />
+  &lt;filter name="send-email" status="failed">Recipient not found&lt;/filter>
   ...
 &lt;/save-comment></code></pre>
         <h3>Example Front-end Form Markup</h3>
@@ -68,7 +76,7 @@
         <p>To edit an existing entry, include the entry ID value of the entry in the form. This is best as a hidden field like so:</p>
         <pre class="XML"><code>&lt;input name="id" type="hidden" value="23" /></code></pre>
         <p>To redirect to a different location upon a successful save, include the redirect location in the form. This is best as a hidden field like so, where the value is the URL to redirect to:</p>
-        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://example.com/success/" /></code></pre>';
+        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://integration.local/success/" /></code></pre>';
 		}
 
 		public function load(){
