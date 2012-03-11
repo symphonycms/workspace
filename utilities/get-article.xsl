@@ -11,7 +11,7 @@
 				<xsl:with-param name="date" select="date"/>
 				<xsl:with-param name="format" select="'D m Y'"/>
 			</xsl:call-template>
-			<xsl:if test="$is-logged-in = 'true'">
+			<xsl:if test="$is-logged-in">
 				<xsl:text> &#8212; </xsl:text>
 				<a class="edit" href="{$root}/symphony/publish/{../section/@handle}/edit/{@id}/">Edit</a>
 			</xsl:if>
@@ -47,7 +47,7 @@
 				<xsl:with-param name="date" select="date"/>
 				<xsl:with-param name="format" select="'D m Y'"/>
 			</xsl:call-template>
-			<xsl:if test="$is-logged-in = 'true'">
+			<xsl:if test="$is-logged-in">
 				<xsl:text> &#8212; </xsl:text>
 				<a class="edit" href="{$root}/symphony/publish/{../section/@handle}/edit/{@id}/">Edit</a>
 			</xsl:if>
