@@ -1,10 +1,56 @@
+
+-- *** STRUCTURE: `tbl_fields_author` ***
+DROP TABLE IF EXISTS `tbl_fields_author`;
+CREATE TABLE `tbl_fields_author` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `allow_author_change` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL,
+  `allow_multiple_selection` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  `default_to_current_user` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `field_id` (`field_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- *** DATA: `tbl_fields_author` ***
+
+-- *** STRUCTURE: `tbl_fields_checkbox` ***
+DROP TABLE IF EXISTS `tbl_fields_checkbox`;
+CREATE TABLE `tbl_fields_checkbox` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `default_state` enum('on','off') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'on',
+  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `field_id` (`field_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- *** DATA: `tbl_fields_checkbox` ***
 INSERT INTO `tbl_fields_checkbox` (`id`, `field_id`, `default_state`, `description`) VALUES (4, 5, 'off', 'Publish this article');
+
+-- *** STRUCTURE: `tbl_fields_date` ***
+DROP TABLE IF EXISTS `tbl_fields_date`;
+CREATE TABLE `tbl_fields_date` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `pre_populate` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  PRIMARY KEY (`id`),
+  KEY `field_id` (`field_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_fields_date` ***
 INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (6, 3, 'yes');
 INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (2, 8, 'yes');
 INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (3, 13, 'yes');
+
+-- *** STRUCTURE: `tbl_fields_input` ***
+DROP TABLE IF EXISTS `tbl_fields_input`;
+CREATE TABLE `tbl_fields_input` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `field_id` (`field_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_fields_input` ***
 INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (11, 1, NULL);
@@ -16,13 +62,29 @@ INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (6, 19, NU
 INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (7, 20, '/^\\w(?:\\.?[\\w%+-]+)*@\\w(?:[\\w-]*\\.)+?[a-z]{2,}$/i');
 INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (8, 21, NULL);
 
+-- *** STRUCTURE: `tbl_fields_select` ***
+DROP TABLE IF EXISTS `tbl_fields_select`;
+CREATE TABLE `tbl_fields_select` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `allow_multiple_selection` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  `show_association` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'yes',
+  `sort_options` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  `static_options` text COLLATE utf8_unicode_ci,
+  `dynamic_options` int(11) unsigned DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `field_id` (`field_id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- *** DATA: `tbl_fields_select` ***
+
 -- *** STRUCTURE: `tbl_fields_selectbox_link` ***
 DROP TABLE IF EXISTS `tbl_fields_selectbox_link`;
 CREATE TABLE `tbl_fields_selectbox_link` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
   `allow_multiple_selection` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
-  `show_association` enum('yes','no') NOT NULL default 'yes',
+  `show_association` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'yes',
   `related_field_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   `limit` int(4) unsigned NOT NULL DEFAULT '20',
   PRIMARY KEY (`id`),
@@ -34,14 +96,49 @@ INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selec
 INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selection`, `show_association`, `related_field_id`, `limit`) VALUES (2, 17, 'no', 'yes', 1, 20);
 INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selection`, `show_association`, `related_field_id`, `limit`) VALUES (4, 4, 'no', 'yes', 6, 20);
 
+-- *** STRUCTURE: `tbl_fields_taglist` ***
+DROP TABLE IF EXISTS `tbl_fields_taglist`;
+CREATE TABLE `tbl_fields_taglist` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `pre_populate_source` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `field_id` (`field_id`),
+  KEY `pre_populate_source` (`pre_populate_source`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+-- *** DATA: `tbl_fields_taglist` ***
+
+-- *** STRUCTURE: `tbl_fields_textarea` ***
+DROP TABLE IF EXISTS `tbl_fields_textarea`;
+CREATE TABLE `tbl_fields_textarea` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `formatter` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `size` int(3) unsigned NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `field_id` (`field_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
 -- *** DATA: `tbl_fields_textarea` ***
-INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES
-(1, 2, 'markdown', 20),
-(2, 7, 'markdown', 5),
-(3, 9, 'markdown', 15),
-(4, 15, 'markdown_with_purifier', 8),
-(5, 18, 'markdown', 9),
-(6, 22, NULL, 9);
+INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (1, 2, 'markdown', 20);
+INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (2, 7, 'markdown', 5);
+INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (3, 9, 'markdown', 15);
+INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (4, 15, 'markdown_with_purifier', 8);
+INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (5, 18, 'markdown', 9);
+INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (6, 22, NULL, 9);
+
+-- *** STRUCTURE: `tbl_fields_upload` ***
+DROP TABLE IF EXISTS `tbl_fields_upload`;
+CREATE TABLE `tbl_fields_upload` (
+  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `field_id` int(11) unsigned NOT NULL,
+  `destination` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
+  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  KEY `field_id` (`field_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_fields_upload` ***
 INSERT INTO `tbl_fields_upload` (`id`, `field_id`, `destination`, `validator`) VALUES (1, 16, '/workspace/uploads', '/\\.(?:bmp|gif|jpe?g|png)$/i');
@@ -57,10 +154,10 @@ CREATE TABLE `tbl_entries_data_1` (
   KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_1` ***
-INSERT INTO `tbl_entries_data_1` (`id`, `entry_id`, `handle`, `value`) VALUES (12, 3, 'a-primer-to-symphony-2s-default-theme', 'A primer to Symphony 2\'s default theme');
+INSERT INTO `tbl_entries_data_1` (`id`, `entry_id`, `handle`, `value`) VALUES (13, 3, 'a-primer-to-symphony-2s-default-theme', 'A primer to Symphony 2\'s default theme');
 INSERT INTO `tbl_entries_data_1` (`id`, `entry_id`, `handle`, `value`) VALUES (11, 4, 'an-example-draft-article', 'An example draft article');
 
 -- *** STRUCTURE: `tbl_entries_data_10` ***
@@ -219,10 +316,10 @@ CREATE TABLE `tbl_entries_data_2` (
   PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   FULLTEXT KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_2` ***
-INSERT INTO `tbl_entries_data_2` (`id`, `entry_id`, `value`, `value_formatted`) VALUES (12, 3, 'Every theme in Symphony has an important mission: to introduce newcomers to Symphony by way of a working example. *Spectrum*, the name of this version\'s default theme, was designed and developed with such a mission in mind by following a set of constraints. A default theme is required to:\r\n\r\n1. be presented in a format that is universally identified and intuitive.\r\n2. have a clear and simple HTML structure.\r\n3. demonstrate the fundamental concepts in Symphony—[sections](http://symphony-cms.com/learn/concepts/view/sections/), [fields](http://symphony-cms.com/learn/concepts/view/fields/), [data sources](http://symphony-cms.com/learn/concepts/view/data-sources/) and [events](http://symphony-cms.com/learn/concepts/view/events/)—and their interactions together.\r\n4. avoid functionality that does not have any educational value.\r\n\r\n#### The design ####\r\n\r\nOur first rule states that a default theme needs to be in a format that is instantly recognisable to a user. As a result, all of the themes created in Symphony\'s history have emphasised a weblog structure. *Spectrum* continues this tradition.\r\n\r\n*Cubic*, the name of a previous default theme, followed the teaching mandate very closely. However, the theme took it one step further and removed complex structure and colour in favour of a simplified look and feel. The main design goal for *Spectrum* is to introduce more colours but still follow the philosophy of a simplistic layout.\r\n\r\n#### Features ####\r\n\r\n*Spectrum* has a handful of additional features that you won\'t find in previous default themes. These new features are not only meant to demonstrate the capabilities of the system but also explain some fundamental philosophies in Symphony 2. Below is a list of features:\r\n\r\n- Logged in users will see links to Symphony\'s admin to edit articles, manage comments and add notes.\r\n- Logged in users will see 3 protected menu items, article drafts, the debug page and a link to the Symphony admin.\r\n- Articles on the drafts page sport a button to publish the article.\r\n- Article images take advantage of Symphony\'s build-in image manipulation feature to crop and size the image automatically.\r\n- The contact form on the about page saves the content to the Messages section on the back end and emails the website\'s owner.\r\n\r\n#### Philosophy ####\r\n\r\nAll of the above takes advantage of new features found in version 2. An important concept that is being advocated in Symphony is the practise of creating a tighter connection between the front end and the back end. Developers are encouraged to take advantage of the simplified URL structure of the admin to create a more convenient environment for their users.\r\n\r\nWith the introduction of the Event editor, developers now have even more control when developing a website. For example, the *Publish* button on the [article drafts page](/drafts/) utilises the event editor to create an interaction between the front end and the back end. This allows the *Publish* button to update the \"Publish this article\" checkbox field from the "Articles" section. This feature also compliments and encourages the philosophy of a more seamless environment between the website and the admin interface.', '<p>Every theme in Symphony has an important mission: to introduce newcomers to Symphony by way of a working example. <em>Spectrum</em>, the name of this version\'s default theme, was designed and developed with such a mission in mind by following a set of constraints. A default theme is required to:</p><ol><li>be presented in a format that is universally identified and intuitive.</li><li>have a clear and simple HTML structure.</li><li>demonstrate the fundamental concepts in Symphony—<a href=\"http://symphony-cms.com/learn/concepts/view/sections/\">sections</a>, <a href=\"http://symphony-cms.com/learn/concepts/view/fields/\">fields</a>, <a href=\"http://symphony-cms.com/learn/concepts/view/data-sources/\">data sources</a> and <a href=\"http://symphony-cms.com/learn/concepts/view/events/\">events</a>—and their interactions together.</li><li>avoid functionality that does not have any educational value.</li></ol><h4>The design</h4><p>Our first rule states that a default theme needs to be in a format that is instantly recognisable to a user. As a result, all of the themes created in Symphony\'s history have emphasised a weblog structure. <em>Spectrum</em> continues this tradition.</p><p><em>Cubic</em>, the name of a previous default theme, followed the teaching mandate very closely. However, the theme took it one step further and removed complex structure and colour in favour of a simplified look and feel. The main design goal for <em>Spectrum</em> is to introduce more colours but still follow the philosophy of a simplistic layout.</p><h4>Features</h4><p><em>Spectrum</em> has a handful of additional features that you won\'t find in previous default themes. These new features are not only meant to demonstrate the capabilities of the system but also explain some fundamental philosophies in Symphony 2. Below is a list of features:</p><ul><li>Logged in users will see links to Symphony\'s admin to edit articles, manage comments and add notes.</li><li>Logged in users will see 3 protected menu items, article drafts, the debug page and a link to the Symphony admin.</li><li>Articles on the drafts page sport a button to publish the article.</li><li>Article images take advantage of Symphony\'s built-in image manipulation feature to crop and size the image automatically.</li><li>The contact form on the about page saves the content to the Messages section on the back end and emails the website\'s owner.</li></ul><h4>Philosophy</h4><p>All of the above takes advantage of new features found in version 2. An important concept that is being advocated in Symphony is the practise of creating a tighter connection between the front end and the back end. Developers are encouraged to take advantage of the simplified URL structure of the admin to create a more convenient environment for their users.</p><p>With the introduction of the Event editor, developers now have even more control when developing a website. For example, the <em>Publish</em> button on the <a href=\"/drafts/\">article drafts page</a> utilises the event editor to create an interaction between the front end and the back end. This allows the <em>Publish</em> button to update the \"Publish this article\" checkbox field from the \"Articles\" section. This feature also complements and encourages the philosophy of a more seamless environment between the website and the admin interface.</p>\n');
+INSERT INTO `tbl_entries_data_2` (`id`, `entry_id`, `value`, `value_formatted`) VALUES (13, 3, 'Every theme in Symphony has an important mission: to introduce newcomers to Symphony by way of a working example. *Spectrum*, the name of this version\'s default theme, was designed and developed with such a mission in mind by following a set of constraints. A default theme is required to:\r\n\r\n1. be presented in a format that is universally identified and intuitive.\r\n2. have a clear and simple HTML structure.\r\n3. demonstrate the fundamental concepts in Symphony—[sections](http://symphony-cms.com/learn/concepts/view/sections/), [fields](http://symphony-cms.com/learn/concepts/view/fields/), [data sources](http://symphony-cms.com/learn/concepts/view/data-sources/) and [events](http://symphony-cms.com/learn/concepts/view/events/)—and their interactions together.\r\n4. avoid functionality that does not have any educational value.\r\n\r\n#### The design ####\r\n\r\nOur first rule states that a default theme needs to be in a format that is instantly recognisable to a user. As a result, all of the themes created in Symphony\'s history have emphasised a weblog structure. *Spectrum* continues this tradition.\r\n\r\n*Cubic*, the name of a previous default theme, followed the teaching mandate very closely. However, the theme took it one step further and removed complex structure and colour in favour of a simplified look and feel. The main design goal for *Spectrum* is to introduce more colours but still follow the philosophy of a simplistic layout.\r\n\r\n#### Features ####\r\n\r\n*Spectrum* has a handful of additional features that you won\'t find in previous default themes. These new features are not only meant to demonstrate the capabilities of the system but also explain some fundamental philosophies in Symphony 2. Below is a list of features:\r\n\r\n- Logged in users will see links to Symphony\'s admin to edit articles, manage comments and add notes.\r\n- Logged in users will see 3 protected menu items, article drafts, the debug page and a link to the Symphony admin.\r\n- Articles on the drafts page sport a button to publish the article.\r\n- Article images take advantage of Symphony\'s build-in image manipulation feature to crop and size the image automatically.\r\n- The contact form on the about page saves the content to the Messages section on the back end and emails the website\'s owner.\r\n\r\n#### Philosophy ####\r\n\r\nAll of the above takes advantage of new features found in version 2. An important concept that is being advocated in Symphony is the practise of creating a tighter connection between the front end and the back end. Developers are encouraged to take advantage of the simplified URL structure of the admin to create a more convenient environment for their users.\r\n\r\nWith the introduction of the Event editor, developers now have even more control when developing a website. For example, the *Publish* button on the [article drafts page](../../drafts/) utilises the event editor to create an interaction between the front end and the back end. This allows the *Publish* button to update the \"Publish this article\" checkbox field from the \"Articles\" section. This feature also compliments and encourages the philosophy of a more seamless environment between the website and the admin interface.', '<p>Every theme in Symphony has an important mission: to introduce newcomers to Symphony by way of a working example. <em>Spectrum</em>, the name of this version\'s default theme, was designed and developed with such a mission in mind by following a set of constraints. A default theme is required to:</p>\n\n<ol>\n<li>be presented in a format that is universally identified and intuitive.</li>\n<li>have a clear and simple HTML structure.</li>\n<li>demonstrate the fundamental concepts in Symphony—<a href=\"http://symphony-cms.com/learn/concepts/view/sections/\">sections</a>, <a href=\"http://symphony-cms.com/learn/concepts/view/fields/\">fields</a>, <a href=\"http://symphony-cms.com/learn/concepts/view/data-sources/\">data sources</a> and <a href=\"http://symphony-cms.com/learn/concepts/view/events/\">events</a>—and their interactions together.</li>\n<li>avoid functionality that does not have any educational value.</li>\n</ol>\n\n<h4>The design</h4>\n\n<p>Our first rule states that a default theme needs to be in a format that is instantly recognisable to a user. As a result, all of the themes created in Symphony\'s history have emphasised a weblog structure. <em>Spectrum</em> continues this tradition.</p>\n\n<p><em>Cubic</em>, the name of a previous default theme, followed the teaching mandate very closely. However, the theme took it one step further and removed complex structure and colour in favour of a simplified look and feel. The main design goal for <em>Spectrum</em> is to introduce more colours but still follow the philosophy of a simplistic layout.</p>\n\n<h4>Features</h4>\n\n<p><em>Spectrum</em> has a handful of additional features that you won\'t find in previous default themes. These new features are not only meant to demonstrate the capabilities of the system but also explain some fundamental philosophies in Symphony 2. Below is a list of features:</p>\n\n<ul>\n<li>Logged in users will see links to Symphony\'s admin to edit articles, manage comments and add notes.</li>\n<li>Logged in users will see 3 protected menu items, article drafts, the debug page and a link to the Symphony admin.</li>\n<li>Articles on the drafts page sport a button to publish the article.</li>\n<li>Article images take advantage of Symphony\'s build-in image manipulation feature to crop and size the image automatically.</li>\n<li>The contact form on the about page saves the content to the Messages section on the back end and emails the website\'s owner.</li>\n</ul>\n\n<h4>Philosophy</h4>\n\n<p>All of the above takes advantage of new features found in version 2. An important concept that is being advocated in Symphony is the practise of creating a tighter connection between the front end and the back end. Developers are encouraged to take advantage of the simplified URL structure of the admin to create a more convenient environment for their users.</p>\n\n<p>With the introduction of the Event editor, developers now have even more control when developing a website. For example, the <em>Publish</em> button on the <a href=\"../../drafts/\">article drafts page</a> utilises the event editor to create an interaction between the front end and the back end. This allows the <em>Publish</em> button to update the \"Publish this article\" checkbox field from the \"Articles\" section. This feature also compliments and encourages the philosophy of a more seamless environment between the website and the admin interface.</p>\n');
 INSERT INTO `tbl_entries_data_2` (`id`, `entry_id`, `value`, `value_formatted`) VALUES (11, 4, 'This is an example draft article. Feel free to test the system by pressing the *publish* button.', '<p>This is an example draft article. Feel free to test the system by pressing the <em>publish</em> button.</p>\n');
 
 -- *** STRUCTURE: `tbl_entries_data_20` ***
@@ -280,11 +377,11 @@ CREATE TABLE `tbl_entries_data_3` (
   UNIQUE KEY `entry_id` (`entry_id`),
   KEY `value` (`value`),
   KEY `date` (`date`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_3` ***
-INSERT INTO `sym_entries_data_3` VALUES(12, 3, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
-INSERT INTO `sym_entries_data_3` VALUES(11, 4, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
+INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `date`) VALUES (13, 3, '2012-03-10T11:21:00+00:00', '2012-03-10 11:21:00');
+INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `date`) VALUES (11, 4, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
 
 -- *** STRUCTURE: `tbl_entries_data_4` ***
 DROP TABLE IF EXISTS `tbl_entries_data_4`;
@@ -295,10 +392,10 @@ CREATE TABLE `tbl_entries_data_4` (
   PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `relation_id` (`relation_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_4` ***
-INSERT INTO `tbl_entries_data_4` (`id`, `entry_id`, `relation_id`) VALUES (12, 3, 1);
+INSERT INTO `tbl_entries_data_4` (`id`, `entry_id`, `relation_id`) VALUES (13, 3, 1);
 INSERT INTO `tbl_entries_data_4` (`id`, `entry_id`, `relation_id`) VALUES (11, 4, 2);
 
 -- *** STRUCTURE: `tbl_entries_data_5` ***
@@ -310,10 +407,10 @@ CREATE TABLE `tbl_entries_data_5` (
   PRIMARY KEY (`id`),
   KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
-) ENGINE=MyISAM AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_5` ***
-INSERT INTO `tbl_entries_data_5` (`id`, `entry_id`, `value`) VALUES (12, 3, 'yes');
+INSERT INTO `tbl_entries_data_5` (`id`, `entry_id`, `value`) VALUES (13, 3, 'yes');
 INSERT INTO `tbl_entries_data_5` (`id`, `entry_id`, `value`) VALUES (11, 4, 'no');
 
 -- *** STRUCTURE: `tbl_entries_data_6` ***
@@ -363,8 +460,8 @@ CREATE TABLE `tbl_entries_data_8` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_entries_data_8` ***
-INSERT INTO `sym_entries_data_8` VALUES(4, 5, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
-INSERT INTO `sym_entries_data_8` VALUES(3, 6, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
+INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `date`) VALUES (4, 5, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
+INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `date`) VALUES (3, 6, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
 
 -- *** STRUCTURE: `tbl_entries_data_9` ***
 DROP TABLE IF EXISTS `tbl_entries_data_9`;
@@ -390,38 +487,34 @@ INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `cr
 INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (5, 3, 1, '2011-07-21 15:06:19', '2011-07-21 05:06:19');
 INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`) VALUES (6, 3, 1, '2011-07-21 15:06:31', '2011-07-21 05:06:31');
 
-
 -- *** DATA: `tbl_extensions` ***
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES
-(129, 'debugdevkit', 'enabled', '1.2'),
-(130, 'export_ensemble', 'enabled', '1.16'),
-(131, 'selectbox_link_field', 'enabled', '1.20'),
-(132, 'jit_image_manipulation', 'enabled', '1.11'),
-(133, 'maintenance_mode', 'enabled', '1.4'),
-(134, 'profiledevkit', 'enabled', '1.0.4'),
-(135, 'markdown', 'enabled', '1.13'),
-(136, 'xssfilter', 'enabled', '1.1');
-
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (129, 'debugdevkit', 'enabled', '1.2.1');
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (130, 'export_ensemble', 'enabled', 2.0);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (131, 'selectbox_link_field', 'enabled', 1.21);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (132, 'jit_image_manipulation', 'enabled', 1.14);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (133, 'maintenance_mode', 'enabled', 1.5);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (134, 'profiledevkit', 'enabled', '1.0.4');
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (135, 'markdown', 'enabled', 1.13);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (136, 'xssfilter', 'enabled', 1.1);
 
 -- *** DATA: `tbl_extensions_delegates` ***
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES
-(169, 129, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
-(170, 129, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation'),
-(171, 130, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
-(172, 132, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
-(173, 132, '/system/preferences/', 'Save', '__SavePreferences'),
-(174, 133, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences'),
-(175, 133, '/system/preferences/', 'Save', '__SavePreferences'),
-(176, 133, '/system/preferences/', 'CustomActions', '__toggleMaintenanceMode'),
-(177, 133, '/frontend/', 'FrontendPrePageResolve', '__checkForMaintenanceMode'),
-(178, 133, '/frontend/', 'FrontendParamsResolve', '__addParam'),
-(179, 133, '/backend/', 'AppendPageAlert', '__appendAlert'),
-(180, 134, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve'),
-(181, 134, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation'),
-(182, 136, '/blueprints/events/new/', 'AppendEventFilter', 'appendEventFilter'),
-(183, 136, '/blueprints/events/edit/', 'AppendEventFilter', 'appendEventFilter'),
-(184, 136, '/frontend/', 'EventPreSaveFilter', 'eventPreSaveFilter');
-
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (186, 129, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (185, 129, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (187, 130, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (188, 132, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (194, 133, '/blueprints/pages/', 'AppendPageContent', '__appendType');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (193, 133, '/backend/', 'AppendPageAlert', '__appendAlert');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (192, 133, '/system/preferences/', 'CustomActions', '__toggleMaintenanceMode');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (191, 133, '/system/preferences/', 'Save', '__SavePreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (190, 133, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (198, 134, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (197, 134, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (200, 136, '/blueprints/events/edit/', 'AppendEventFilter', 'appendEventFilter');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (199, 136, '/blueprints/events/new/', 'AppendEventFilter', 'appendEventFilter');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (189, 132, '/system/preferences/', 'Save', '__SavePreferences');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (195, 133, '/frontend/', 'FrontendPrePageResolve', '__checkForMaintenanceMode');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (196, 133, '/frontend/', 'FrontendParamsResolve', '__addParam');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (201, 136, '/frontend/', 'EventPreSaveFilter', 'eventPreSaveFilter');
 
 -- *** DATA: `tbl_fields` ***
 INSERT INTO `tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (1, 'Title', 'title', 'input', 1, 'yes', 0, 'main', 'yes');
