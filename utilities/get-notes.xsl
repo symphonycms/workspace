@@ -4,7 +4,7 @@
 <xsl:template match="notes">
 	<h3>
 		<xsl:text>Notes</xsl:text>
-		<xsl:if test="$is-logged-in = 'true'">
+		<xsl:if test="$is-logged-in">
 			<xsl:text> &#8212; </xsl:text>
 			<a href="{$root}/symphony/publish/{section/@handle}/new/">Add</a>
 		</xsl:if>
