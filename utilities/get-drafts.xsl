@@ -43,7 +43,7 @@
 			</xsl:if>
 		</h3>
 		<h2>
-			<a href="{$root}/articles/{title/@handle}/"><xsl:value-of select="title"/></a>
+			<a href="{$root}/drafts/{title/@handle}/"><xsl:value-of select="title"/></a>
 		</h2>
 		<ul class="meta">
 			<li class="icon-filed-under">
