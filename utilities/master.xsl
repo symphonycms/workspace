@@ -50,7 +50,7 @@
 			</div>
 		</div>
 		<ul id="footer">
-			<li>Orchestrated by <a class="symphony" href="http://symphony-cms.com/">Symphony</a></li>
+			<li>Orchestrated by <a class="symphony" href="http://getsymphony.com/">Symphony</a></li>
 			<li>Broadcasted via <a class="rss" href="{$root}/rss/">XML Feed</a></li>
 		</ul>
 	</body>
