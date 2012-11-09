@@ -9,7 +9,7 @@
 		<xsl:value-of select="website-owner/author/name"/>
 		<xsl:text> is a professional space monkey extraordinaire</xsl:text>
 	</h2>
-	<p><em><xsl:value-of select="$website-name"/></em> is running off a freshly installed copy of <a href="http://symphony-cms.com">Symphony CMS</a>.</p>
+	<p><em><xsl:value-of select="$website-name"/></em> is running off a freshly installed copy of <a href="http://getsymphony.com">Symphony CMS</a>.</p>
 	<p>Be sure to check back regularly as the site transforms from <em>fresh prince</em> to <em>whizz-bang candy steak</em>.</p>
 	<hr/>
 	<h3>Contact Me</h3>

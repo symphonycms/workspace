@@ -30,8 +30,8 @@
 				'name' => 'Logged in Author',
 				'author' => array(
 							'name' => 'Symphony Team',
-							'website' => 'http://symphony-cms.com',
-							'email' => 'team@symphony-cms.com'),
+							'website' => 'http://getsymphony.com',
+							'email' => 'team@getsymphony.com'),
 				'version' => '1.0',
 				'release-date' => '2012-03-10'
 			);
