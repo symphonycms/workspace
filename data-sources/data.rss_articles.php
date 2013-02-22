@@ -2,7 +2,7 @@
 
 	require_once(TOOLKIT . '/class.datasource.php');
 
-	Class datasourcerss_articles extends Datasource{
+	Class datasourcerss_articles extends SectionDatasource {
 
 		public $dsParamROOTELEMENT = 'rss-articles';
 		public $dsParamORDER = 'desc';
@@ -14,9 +14,11 @@
 		public $dsParamHTMLENCODE = 'yes';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
+
 		public $dsParamFILTERS = array(
 				'5' => 'yes',
 		);
+
 
 		public $dsParamINCLUDEDELEMENTS = array(
 				'title',
@@ -24,37 +26,37 @@
 				'date'
 		);
 
-		public function __construct(&$parent, $env=NULL, $process_params=true){
-			parent::__construct($parent, $env, $process_params);
+
+		public function __construct($env=NULL, $process_params=true) {
+			parent::__construct($env, $process_params);
 			$this->_dependencies = array();
 		}
 
-		public function about(){
+		public function about() {
 			return array(
 				'name' => 'RSS Articles',
 				'author' => array(
 					'name' => 'Symphony Team',
 					'website' => 'http://getsymphony.com',
 					'email' => 'team@getsymphony.com'),
-				'version' => 'Symphony 2.3',
-				'release-date' => '2012-03-10T13:21:00+00:00'
+				'version' => 'Symphony 2.3.2RC1',
+				'release-date' => '2013-02-22T11:31:52+00:00'
 			);
 		}
 
-		public function getSource(){
+		public function getSource() {
 			return '1';
 		}
 
-		public function allowEditorToParse(){
+		public function allowEditorToParse() {
 			return true;
 		}
 
-		public function grab(&$param_pool=NULL){
+		public function execute(array &$param_pool = null) {
 			$result = new XMLElement($this->dsParamROOTELEMENT);
 
 			try{
-				
-				include(TOOLKIT . '/data-sources/datasource.section.php');
+				$result = parent::execute($param_pool);
 			}
 			catch(FrontendPageNotFoundException $e){
 				// Work around. This ensures the 404 page is displayed and
@@ -70,4 +72,5 @@
 
 			return $result;
 		}
+
 	}

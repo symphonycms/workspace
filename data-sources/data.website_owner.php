@@ -2,53 +2,55 @@
 
 	require_once(TOOLKIT . '/class.datasource.php');
 
-	Class datasourcewebsite_owner extends Datasource{
+	Class datasourcewebsite_owner extends AuthorDatasource {
 
 		public $dsParamROOTELEMENT = 'website-owner';
 		public $dsParamORDER = 'desc';
 		public $dsParamREDIRECTONEMPTY = 'no';
 		public $dsParamSORT = 'id';
 
+
 		public $dsParamFILTERS = array(
 				'id' => '1',
 		);
+
 
 		public $dsParamINCLUDEDELEMENTS = array(
 				'username',
 				'name'
 		);
 
-		public function __construct(&$parent, $env=NULL, $process_params=true){
-			parent::__construct($parent, $env, $process_params);
+
+		public function __construct($env=NULL, $process_params=true) {
+			parent::__construct($env, $process_params);
 			$this->_dependencies = array();
 		}
 
-		public function about(){
+		public function about() {
 			return array(
 				'name' => 'Website Owner',
 				'author' => array(
 					'name' => 'Symphony Team',
 					'website' => 'http://getsymphony.com',
 					'email' => 'team@getsymphony.com'),
-				'version' => 'Symphony 2.3',
-				'release-date' => '2012-03-10T13:21:00+00:00'
+				'version' => 'Symphony 2.3.2RC1',
+				'release-date' => '2013-02-22T11:31:57+00:00'
 			);
 		}
 
-		public function getSource(){
+		public function getSource() {
 			return 'authors';
 		}
 
-		public function allowEditorToParse(){
+		public function allowEditorToParse() {
 			return true;
 		}
 
-		public function grab(&$param_pool=NULL){
+		public function execute(array &$param_pool = null) {
 			$result = new XMLElement($this->dsParamROOTELEMENT);
 
 			try{
-				
-				include(TOOLKIT . '/data-sources/datasource.author.php');
+				$result = parent::execute($param_pool);
 			}
 			catch(FrontendPageNotFoundException $e){
 				// Work around. This ensures the 404 page is displayed and
@@ -64,4 +66,5 @@
 
 			return $result;
 		}
+
 	}

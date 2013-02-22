@@ -2,7 +2,7 @@
 
 	require_once(TOOLKIT . '/class.datasource.php');
 
-	Class datasourcenotes extends Datasource{
+	Class datasourcenotes extends SectionDatasource {
 
 		public $dsParamROOTELEMENT = 'notes';
 		public $dsParamORDER = 'desc';
@@ -13,42 +13,45 @@
 		public $dsParamSORT = 'system:id';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
 
+
+
+
 		public $dsParamINCLUDEDELEMENTS = array(
 				'date',
 				'note: formatted'
 		);
 
-		public function __construct(&$parent, $env=NULL, $process_params=true){
-			parent::__construct($parent, $env, $process_params);
+
+		public function __construct($env=NULL, $process_params=true) {
+			parent::__construct($env, $process_params);
 			$this->_dependencies = array();
 		}
 
-		public function about(){
+		public function about() {
 			return array(
 				'name' => 'Notes',
 				'author' => array(
 					'name' => 'Symphony Team',
 					'website' => 'http://getsymphony.com',
 					'email' => 'team@getsymphony.com'),
-				'version' => 'Symphony 2.3',
-				'release-date' => '2012-03-10T13:21:00+00:00'
+				'version' => 'Symphony 2.3.2RC1',
+				'release-date' => '2013-02-22T11:31:44+00:00'
 			);
 		}
 
-		public function getSource(){
+		public function getSource() {
 			return '3';
 		}
 
-		public function allowEditorToParse(){
+		public function allowEditorToParse() {
 			return true;
 		}
 
-		public function grab(&$param_pool=NULL){
+		public function execute(array &$param_pool = null) {
 			$result = new XMLElement($this->dsParamROOTELEMENT);
 
 			try{
-				
-				include(TOOLKIT . '/data-sources/datasource.section.php');
+				$result = parent::execute($param_pool);
 			}
 			catch(FrontendPageNotFoundException $e){
 				// Work around. This ensures the 404 page is displayed and
@@ -64,4 +67,5 @@
 
 			return $result;
 		}
+
 	}

@@ -2,12 +2,12 @@
 
 	require_once(TOOLKIT . '/class.event.php');
 
-	Class eventsave_comment extends Event{
+	Class eventsave_comment extends SectionEvent{
 
-		const ROOTELEMENT = 'save-comment';
+		public $ROOTELEMENT = 'save-comment';
 
 		public $eParamFILTERS = array(
-			'xss-fail'
+			'xss-fail',
 		);
 
 		public static function about(){
@@ -17,8 +17,8 @@
 					'name' => 'Symphony Team',
 					'website' => 'http://getsymphony.com',
 					'email' => 'team@getsymphony.com'),
-				'version' => 'Symphony 2.3',
-				'release-date' => '2012-03-10T13:21:00+00:00',
+				'version' => 'Symphony 2.3.2RC1',
+				'release-date' => '2013-02-22T11:35:35+00:00',
 				'trigger-condition' => 'action[save-comment]'
 			);
 		}
@@ -76,16 +76,11 @@
         <p>To edit an existing entry, include the entry ID value of the entry in the form. This is best as a hidden field like so:</p>
         <pre class="XML"><code>&lt;input name="id" type="hidden" value="23" /></code></pre>
         <p>To redirect to a different location upon a successful save, include the redirect location in the form. This is best as a hidden field like so, where the value is the URL to redirect to:</p>
-        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://integration.local/success/" /></code></pre>';
+        <pre class="XML"><code>&lt;input name="redirect" type="hidden" value="http://brendan.sites.randb.com.au/build/symphony-2.3.2RC1/success/" /></code></pre>';
 		}
 
 		public function load(){
 			if(isset($_POST['action']['save-comment'])) return $this->__trigger();
-		}
-
-		protected function __trigger(){
-			include(TOOLKIT . '/events/event.section.php');
-			return $result;
 		}
 
 	}

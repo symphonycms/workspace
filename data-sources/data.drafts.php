@@ -2,7 +2,7 @@
 
 	require_once(TOOLKIT . '/class.datasource.php');
 
-	Class datasourcedrafts extends Datasource{
+	Class datasourcedrafts extends SectionDatasource {
 
 		public $dsParamROOTELEMENT = 'drafts';
 		public $dsParamORDER = 'desc';
@@ -12,13 +12,13 @@
 		public $dsParamREDIRECTONEMPTY = 'no';
 		public $dsParamSORT = 'system:id';
 		public $dsParamASSOCIATEDENTRYCOUNTS = 'no';
-		
+
 
 		public $dsParamFILTERS = array(
 				'1' => '{$entry}',
 				'5' => 'no',
 		);
-		
+
 
 		public $dsParamINCLUDEDELEMENTS = array(
 				'title',
@@ -26,39 +26,38 @@
 				'date',
 				'categories'
 		);
-		
 
-		public function __construct(&$parent, $env=NULL, $process_params=true){
-			parent::__construct($parent, $env, $process_params);
+
+		public function __construct($env=NULL, $process_params=true) {
+			parent::__construct($env, $process_params);
 			$this->_dependencies = array();
 		}
 
-		public function about(){
+		public function about() {
 			return array(
 				'name' => 'Drafts',
 				'author' => array(
 					'name' => 'Symphony Team',
 					'website' => 'http://getsymphony.com',
 					'email' => 'team@getsymphony.com'),
-				'version' => 'Symphony 2.3',
-				'release-date' => '2012-03-10T13:21:00+00:00'
+				'version' => 'Symphony 2.3.2RC1',
+				'release-date' => '2013-02-22T11:31:30+00:00'
 			);
 		}
 
-		public function getSource(){
+		public function getSource() {
 			return '1';
 		}
 
-		public function allowEditorToParse(){
+		public function allowEditorToParse() {
 			return true;
 		}
 
-		public function grab(&$param_pool=NULL){
+		public function execute(array &$param_pool = null) {
 			$result = new XMLElement($this->dsParamROOTELEMENT);
 
 			try{
-				
-				include(TOOLKIT . '/data-sources/datasource.section.php');
+				$result = parent::execute($param_pool);
 			}
 			catch(FrontendPageNotFoundException $e){
 				// Work around. This ensures the 404 page is displayed and
@@ -71,8 +70,6 @@
 			}
 
 			if($this->_force_empty_result) $result = $this->emptyXMLSet();
-
-			
 
 			return $result;
 		}
