@@ -32,15 +32,15 @@ DROP TABLE IF EXISTS `tbl_fields_date`;
 CREATE TABLE `tbl_fields_date` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `pre_populate` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
+  `pre_populate` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA:`tbl_fields_date` ***
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (6, 3, 'yes');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (2, 8, 'yes');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (3, 13, 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (6, 3, 'now');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (2, 8, 'now');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (3, 13, 'now');
 
 -- *** STRUCTURE:`tbl_fields_input` ***
 DROP TABLE IF EXISTS `tbl_fields_input`;
