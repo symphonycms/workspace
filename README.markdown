@@ -2,6 +2,8 @@
 
 This is the default workspace for Symphony CMS. This workspace aims to teach newcomers to Symphony by showcasing the basic features and functionalities using a familiar environment of a typical blog set-up.
 
+This workspace is compatible with Symphony 2.5.0+.
+
 ## Installing this workspace
 	
 1. Clone workspace before installing Symphony: `git clone git://github.com/symphonycms/workspace.git your-website/workspace`
