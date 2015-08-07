@@ -1,56 +1,10 @@
-
--- *** STRUCTURE:`tbl_fields_author` ***
-DROP TABLE IF EXISTS `tbl_fields_author`;
-CREATE TABLE `tbl_fields_author` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `allow_multiple_selection` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
-  `default_to_current_user` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL,
-  `author_types` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `field_id` (`field_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- *** DATA:`tbl_fields_author` ***
-
--- *** STRUCTURE:`tbl_fields_checkbox` ***
-DROP TABLE IF EXISTS `tbl_fields_checkbox`;
-CREATE TABLE `tbl_fields_checkbox` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `default_state` enum('on','off') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'on',
-  `description` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- *** DATA:`tbl_fields_checkbox` ***
 INSERT INTO `tbl_fields_checkbox` (`id`, `field_id`, `default_state`, `description`) VALUES (4, 5, 'off', 'Publish this article');
 
--- *** STRUCTURE:`tbl_fields_date` ***
-DROP TABLE IF EXISTS `tbl_fields_date`;
-CREATE TABLE `tbl_fields_date` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `pre_populate` varchar(80) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- *** DATA:`tbl_fields_date` ***
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (6, 3, 'now');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (2, 8, 'now');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (3, 13, 'now');
-
--- *** STRUCTURE:`tbl_fields_input` ***
-DROP TABLE IF EXISTS `tbl_fields_input`;
-CREATE TABLE `tbl_fields_input` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`, `time`) VALUES (6, 3, 'now', 'yes', 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`, `time`) VALUES (2, 8, 'now', 'yes', 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`, `time`) VALUES (3, 13, 'now', 'yes', 'yes');
 
 -- *** DATA:`tbl_fields_input` ***
 INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (11, 1, NULL);
@@ -62,64 +16,10 @@ INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (6, 19, NU
 INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (7, 20, '/^\\w(?:\\.?[\\w%+-]+)*@\\w(?:[\\w-]*\\.)+?[a-z]{2,}$/i');
 INSERT INTO `tbl_fields_input` (`id`, `field_id`, `validator`) VALUES (8, 21, NULL);
 
--- *** STRUCTURE:`tbl_fields_select` ***
-DROP TABLE IF EXISTS `tbl_fields_select`;
-CREATE TABLE `tbl_fields_select` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `allow_multiple_selection` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
-  `show_association` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'yes',
-  `sort_options` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
-  `static_options` text COLLATE utf8_unicode_ci,
-  `dynamic_options` int(11) unsigned DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- *** DATA:`tbl_fields_select` ***
-
--- *** STRUCTURE:`tbl_fields_selectbox_link` ***
-DROP TABLE IF EXISTS `tbl_fields_selectbox_link`;
-CREATE TABLE `tbl_fields_selectbox_link` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `allow_multiple_selection` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
-  `show_association` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'yes',
-  `related_field_id` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `limit` int(4) unsigned NOT NULL DEFAULT '20',
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
 -- *** DATA:`tbl_fields_selectbox_link` ***
-INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selection`, `show_association`, `related_field_id`, `limit`) VALUES (1, 14, 'no', 'yes', 1, 20);
-INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selection`, `show_association`, `related_field_id`, `limit`) VALUES (2, 17, 'no', 'yes', 1, 20);
-INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selection`, `show_association`, `related_field_id`, `limit`) VALUES (4, 4, 'no', 'yes', 6, 20);
-
--- *** STRUCTURE:`tbl_fields_taglist` ***
-DROP TABLE IF EXISTS `tbl_fields_taglist`;
-CREATE TABLE `tbl_fields_taglist` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `pre_populate_source` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`),
-  KEY `pre_populate_source` (`pre_populate_source`)
-) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
-
--- *** DATA:`tbl_fields_taglist` ***
-
--- *** STRUCTURE:`tbl_fields_textarea` ***
-DROP TABLE IF EXISTS `tbl_fields_textarea`;
-CREATE TABLE `tbl_fields_textarea` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `formatter` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
-  `size` int(3) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selection`, `hide_when_prepopulated`, `related_field_id`, `limit`) VALUES (1, 14, 'no', 'no', 1, 20);
+INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selection`, `hide_when_prepopulated`, `related_field_id`, `limit`) VALUES (2, 17, 'no', 'no', 1, 20);
+INSERT INTO `tbl_fields_selectbox_link` (`id`, `field_id`, `allow_multiple_selection`, `hide_when_prepopulated`, `related_field_id`, `limit`) VALUES (4, 4, 'no', 'no', 6, 20);
 
 -- *** DATA:`tbl_fields_textarea` ***
 INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (1, 2, 'markdown', 20);
@@ -128,17 +28,6 @@ INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES
 INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (4, 15, 'markdown_with_purifier', 8);
 INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (5, 18, 'markdown', 9);
 INSERT INTO `tbl_fields_textarea` (`id`, `field_id`, `formatter`, `size`) VALUES (6, 22, NULL, 9);
-
--- *** STRUCTURE:`tbl_fields_upload` ***
-DROP TABLE IF EXISTS `tbl_fields_upload`;
-CREATE TABLE `tbl_fields_upload` (
-  `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
-  `field_id` int(11) unsigned NOT NULL,
-  `destination` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  KEY `field_id` (`field_id`)
-) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA:`tbl_fields_upload` ***
 INSERT INTO `tbl_fields_upload` (`id`, `field_id`, `destination`, `validator`) VALUES (1, 16, '/workspace/uploads', '/\\.(?:bmp|gif|jpe?g|png)$/i');
@@ -380,8 +269,8 @@ CREATE TABLE `tbl_entries_data_3` (
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA:`tbl_entries_data_3` ***
-INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `date`) VALUES (13, 3, '2012-03-10T11:21:00+00:00', '2012-03-10 11:21:00');
-INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `date`) VALUES (11, 4, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
+INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `date`) VALUES (13, 3, '2014-03-10T11:21:00+00:00', '2014-03-10 11:21:00');
+INSERT INTO `tbl_entries_data_3` (`id`, `entry_id`, `value`, `date`) VALUES (11, 4, '2014-03-10T21:21:00+10:00', '2014-03-10 11:21:00');
 
 -- *** STRUCTURE:`tbl_entries_data_4` ***
 DROP TABLE IF EXISTS `tbl_entries_data_4`;
@@ -460,8 +349,8 @@ CREATE TABLE `tbl_entries_data_8` (
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA:`tbl_entries_data_8` ***
-INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `date`) VALUES (4, 5, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
-INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `date`) VALUES (3, 6, '2012-03-10T21:21:00+10:00', '2012-03-10 11:21:00');
+INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `date`) VALUES (4, 5, '2014-03-10T21:21:00+10:00', '2014-03-10 11:21:00');
+INSERT INTO `tbl_entries_data_8` (`id`, `entry_id`, `value`, `date`) VALUES (3, 6, '2014-03-10T21:21:00+10:00', '2014-03-10 11:21:00');
 
 -- *** STRUCTURE:`tbl_entries_data_9` ***
 DROP TABLE IF EXISTS `tbl_entries_data_9`;
@@ -480,41 +369,12 @@ INSERT INTO `tbl_entries_data_9` (`id`, `entry_id`, `value`, `value_formatted`) 
 INSERT INTO `tbl_entries_data_9` (`id`, `entry_id`, `value`, `value_formatted`) VALUES (3, 6, 'Follow the Symphony team ([@symphonycms](http://twitter.com/symphonycms)) and the Symphony community ([#symphonycms](http://twitter.com/search?q=%23symphonycms)) on Twitter.', '<p>Follow the Symphony team (<a href=\"http://twitter.com/symphonycms\">@symphonycms</a>) and the Symphony community (<a href=\"http://twitter.com/search?q=%23symphonycms\">#symphonycms</a>) on Twitter.</p>\n');
 
 -- *** DATA:`tbl_entries` ***
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (1, 2, 1, '2011-07-21 15:03:54', '2011-07-21 05:03:54', '2011-07-21 15:03:54', '2011-07-21 05:03:54');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (2, 2, 1, '2011-07-21 15:05:01', '2011-07-21 05:05:01', '2011-07-21 15:05:01', '2011-07-21 05:05:01');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (3, 1, 1, '2011-07-21 15:05:45', '2011-07-21 05:05:45', '2011-07-21 15:05:45', '2011-07-21 05:05:45');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (4, 1, 1, '2011-07-21 15:06:00', '2011-07-21 05:06:00', '2011-07-21 15:06:00', '2011-07-21 05:06:00');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (5, 3, 1, '2011-07-21 15:06:19', '2011-07-21 05:06:19', '2011-07-21 15:06:19', '2011-07-21 05:06:19');
-INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (6, 3, 1, '2011-07-21 15:06:31', '2011-07-21 05:06:31', '2011-07-21 15:06:31', '2011-07-21 05:06:31');
-
--- *** DATA:`tbl_extensions` ***
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (129, 'debugdevkit', 'enabled', '1.2.2');
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (130, 'export_ensemble', 'enabled', '2.0.1');
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (131, 'selectbox_link_field', 'enabled', '1.25');
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (132, 'jit_image_manipulation', 'enabled', '1.16');
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (133, 'maintenance_mode', 'enabled', '1.6');
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (134, 'profiledevkit', 'enabled', '1.1');
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (135, 'markdown', 'enabled', '1.14');
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (136, 'xssfilter', 'enabled', '1.1.1');
-
--- *** DATA:`tbl_extensions_delegates` ***
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (203, 129, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (202, 129, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (204, 130, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (211, 133, '/blueprints/pages/', 'AppendPageContent', '__appendType');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (210, 133, '/backend/', 'AppendPageAlert', '__appendAlert');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (209, 133, '/system/preferences/', 'CustomActions', '__toggleMaintenanceMode');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (208, 133, '/system/preferences/', 'Save', '__SavePreferences');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (215, 134, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (214, 134, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (217, 136, '/blueprints/events/edit/', 'AppendEventFilter', 'appendEventFilter');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (205, 132, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (207, 133, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (216, 136, '/blueprints/events/new/', 'AppendEventFilter', 'appendEventFilter');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (206, 132, '/system/preferences/', 'Save', '__SavePreferences');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (212, 133, '/frontend/', 'FrontendPrePageResolve', '__checkForMaintenanceMode');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (213, 133, '/frontend/', 'FrontendParamsResolve', '__addParam');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (218, 136, '/frontend/', 'EventPreSaveFilter', 'eventPreSaveFilter');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (1, 2, 1, '2014-02-21 15:03:54', '2014-02-21 05:03:54', '2014-02-21 15:03:54', '2014-02-21 05:03:54');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (2, 2, 1, '2014-02-21 15:05:01', '2014-02-21 05:05:01', '2014-02-21 15:05:01', '2014-02-21 05:05:01');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (3, 1, 1, '2014-02-21 15:05:45', '2014-02-21 05:05:45', '2014-02-21 15:05:45', '2014-02-21 05:05:45');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (4, 1, 1, '2014-02-21 15:06:00', '2014-02-21 05:06:00', '2014-02-21 15:06:00', '2014-02-21 05:06:00');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (5, 3, 1, '2014-02-21 15:06:19', '2014-02-21 05:06:19', '2014-02-21 15:06:19', '2014-02-21 05:06:19');
+INSERT INTO `tbl_entries` (`id`, `section_id`, `author_id`, `creation_date`, `creation_date_gmt`, `modification_date`, `modification_date_gmt`) VALUES (6, 3, 1, '2014-02-21 15:06:31', '2014-02-21 05:06:31', '2014-02-21 15:06:31', '2014-02-21 05:06:31');
 
 -- *** DATA:`tbl_fields` ***
 INSERT INTO `tbl_fields` (`id`, `label`, `element_name`, `type`, `parent_section`, `required`, `sortorder`, `location`, `show_column`) VALUES (1, 'Title', 'title', 'input', 1, 'yes', 0, 'main', 'yes');
@@ -563,12 +423,12 @@ INSERT INTO `tbl_pages_types` (`id`, `page_id`, `type`) VALUES (657, 75, 'mainte
 INSERT INTO `tbl_pages_types` (`id`, `page_id`, `type`) VALUES (658, 76, 404);
 
 -- *** DATA:`tbl_sections` ***
-INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `navigation_group`) VALUES (1, 'Articles', 'articles', 1, 'no', 'Content');
-INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `navigation_group`) VALUES (2, 'Categories', 'categories', 2, 'no', 'Content');
-INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `navigation_group`) VALUES (3, 'Notes', 'notes', 3, 'no', 'Content');
-INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `navigation_group`) VALUES (4, 'Comments', 'comments', 4, 'no', 'Content');
-INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `navigation_group`) VALUES (5, 'Images', 'images', 5, 'yes', 'Content');
-INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `navigation_group`) VALUES (6, 'Messages', 'messages', 6, 'no', 'Content');
+INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `filter`, `navigation_group`) VALUES (1, 'Articles', 'articles', 1, 'no', 'yes', 'Content');
+INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `filter`, `navigation_group`) VALUES (2, 'Categories', 'categories', 2, 'no', 'no', 'Content');
+INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `filter`, `navigation_group`) VALUES (3, 'Notes', 'notes', 3, 'no', 'yes', 'Content');
+INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `filter`, `navigation_group`) VALUES (4, 'Comments', 'comments', 4, 'no', 'yes', 'Content');
+INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `filter`, `navigation_group`) VALUES (5, 'Images', 'images', 5, 'yes', 'yes', 'Content');
+INSERT INTO `tbl_sections` (`id`, `name`, `handle`, `sortorder`, `hidden`, `filter`, `navigation_group`) VALUES (6, 'Messages', 'messages', 6, 'no', 'yes', 'Content');
 
 -- *** DATA:`tbl_sections_association` ***
 INSERT INTO `tbl_sections_association` (`id`, `parent_section_id`, `parent_section_field_id`, `child_section_id`, `child_section_field_id`, `hide_association`) VALUES (1, 1, 1, 4, 14, 'no');
