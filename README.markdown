@@ -2,7 +2,7 @@
 
 This is the default workspace for Symphony CMS. This workspace aims to teach newcomers to Symphony by showcasing the basic features and functionalities using a familiar environment of a typical blog set-up.
 
-This workspace is compatible with Symphony 2.5.0+.
+This workspace is compatible with Symphony 2.6.2+.
 
 ## Installing this workspace
 	
