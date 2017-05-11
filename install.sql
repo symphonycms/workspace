@@ -53,7 +53,7 @@ CREATE TABLE `tbl_entries_data_1` (
   `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -70,7 +70,7 @@ CREATE TABLE `tbl_entries_data_10` (
   `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -85,7 +85,7 @@ CREATE TABLE `tbl_entries_data_11` (
   `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -100,7 +100,7 @@ CREATE TABLE `tbl_entries_data_12` (
   `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -143,7 +143,7 @@ CREATE TABLE `tbl_entries_data_15` (
   `value` text COLLATE utf8_unicode_ci,
   `value_formatted` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   FULLTEXT KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -159,7 +159,7 @@ CREATE TABLE `tbl_entries_data_16` (
   `mimetype` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
   `meta` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `file` (`file`),
   KEY `mimetype` (`mimetype`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -187,7 +187,7 @@ CREATE TABLE `tbl_entries_data_18` (
   `value` text COLLATE utf8_unicode_ci,
   `value_formatted` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   FULLTEXT KEY `value` (`value`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -201,7 +201,7 @@ CREATE TABLE `tbl_entries_data_19` (
   `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -216,7 +216,7 @@ CREATE TABLE `tbl_entries_data_2` (
   `value` text COLLATE utf8_unicode_ci,
   `value_formatted` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   FULLTEXT KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -232,7 +232,7 @@ CREATE TABLE `tbl_entries_data_20` (
   `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -247,7 +247,7 @@ CREATE TABLE `tbl_entries_data_21` (
   `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -262,7 +262,7 @@ CREATE TABLE `tbl_entries_data_22` (
   `value` text COLLATE utf8_unicode_ci,
   `value_formatted` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   FULLTEXT KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -307,7 +307,7 @@ CREATE TABLE `tbl_entries_data_5` (
   `entry_id` int(11) unsigned NOT NULL,
   `value` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -323,7 +323,7 @@ CREATE TABLE `tbl_entries_data_6` (
   `handle` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `value` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   KEY `handle` (`handle`),
   KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -340,7 +340,7 @@ CREATE TABLE `tbl_entries_data_7` (
   `value` text COLLATE utf8_unicode_ci,
   `value_formatted` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   FULLTEXT KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=11 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
@@ -373,7 +373,7 @@ CREATE TABLE `tbl_entries_data_9` (
   `value` text COLLATE utf8_unicode_ci,
   `value_formatted` text COLLATE utf8_unicode_ci,
   PRIMARY KEY (`id`),
-  KEY `entry_id` (`entry_id`),
+  UNIQUE KEY `entry_id` (`entry_id`),
   FULLTEXT KEY `value` (`value`)
 ) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
