@@ -15,10 +15,16 @@ body {
 #package {
 	position: relative;
 	background: #fff;
-	width: 650px;
+	width: 90%;
 	text-align: left;
 	border: 5px solid #282828;
 	margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+	#package {
+		width: 650px;
+	}
 }
 
 #content {
@@ -67,9 +73,15 @@ ul.archive li a {
 
 #masthead {
 	position: relative;
-	width: 650px;
+	width: 90%;
 	text-shadow: #222 2px 2px 2px;
 	margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+	#masthead {
+		width: 650px;
+	}
 }
 
 #masthead h1 a {
@@ -339,11 +351,17 @@ ul.list li.categories {
 /******* Form *******/
 
 #guideline {
-	float: right;
 	color: #333;
-	width: 235px;
 	font: 80%/1.5em Verdana, Sans-serif;
-	margin: 20px 0 0 15px;
+	margin: 20px 0 0 0;
+}
+
+@media (min-width: 700px) {
+	#guideline {
+		float: right;
+		width: 235px;
+		margin-left: 15px;
+	}
 }
 
 #guideline h4 {
@@ -461,11 +479,17 @@ form#publish-article fieldset button#submit {
 
 ul#footer {
 	color: #8e8875;
-	width: 650px;
+	width: 90%;
 	font-size: 0.9em;
 	text-align: right;
 	text-shadow: #222 2px 2px 2px;
 	margin: 0 auto;
+}
+
+@media (min-width: 700px) {
+	ul#footer {
+		width: 650px;
+	}
 }
 
 ul#footer li {
